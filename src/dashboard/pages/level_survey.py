@@ -183,8 +183,181 @@ def _render_evaluation(df_detail, country_stats, type_stats, year_option):
     """, unsafe_allow_html=True)
 
 
+_CP_CSS = """
+<style>
+.cp-grid{display:grid;gap:14px;margin:2px 0 6px}
+.cp4{grid-template-columns:repeat(4,1fr)}
+.cp3{grid-template-columns:repeat(3,1fr)}
+.cp-card{border:1px solid #e7ebf1;border-radius:12px;overflow:hidden;background:#fff;
+  display:flex;flex-direction:column;min-height:196px}
+.cp-hd{background:#f7f9fc;padding:12px 16px;min-height:50px}
+.cp-t{font-size:13.5px;font-weight:800;color:#2a3f60;line-height:1.3}
+.cp-t small{display:block;font-weight:600;color:#64748b;font-size:11px;margin-top:2px}
+.cp-mid{flex:1;display:flex;align-items:center;justify-content:center;padding:8px;position:relative}
+.cp-val{font-size:32px;font-weight:800;color:#2a3f60;line-height:1}
+.cp-u{font-size:14px;font-weight:700;color:#64748b;margin-left:3px}
+.cp-badge{position:absolute;top:0;left:0;font-size:10px;font-weight:800;color:#fff;
+  padding:3px 9px;border-radius:0 0 8px 0}
+.cp-rankbox{padding:0 16px 16px}
+.cp-rl{text-align:center;font-size:12px;color:#64748b;margin-bottom:8px}
+.cp-rl b{color:#2a3f60;font-weight:800}
+.cp-bar{position:relative;height:8px;border-radius:6px;margin-top:20px;
+  background:linear-gradient(90deg,#e8615f 0%,#f0a35e 22%,#f2d97b 44%,#bcd6a6 62%,#7fb6d6 80%,#3d6fb0 100%)}
+.cp-dot{position:absolute;top:50%;width:10px;height:10px;border-radius:50%;background:#fff;
+  border:2px solid #9aa7bb;transform:translate(-50%,-50%)}
+.cp-tick{position:absolute;top:-4px;width:3px;height:16px;border-radius:2px;background:#16263f;
+  transform:translateX(-50%);box-shadow:0 0 0 2px #fff}
+.cp-me{position:absolute;top:-22px;transform:translateX(-50%);font-size:13px}
+.cp-ends{display:flex;justify-content:space-between;font-size:10px;color:#9aa7bb;margin-top:6px}
+.ctis-link{border:1px solid #e7ebf1;border-radius:10px;background:#f7f9fc;padding:10px 12px;margin-bottom:6px}
+.ctis-link .t{font-weight:700;color:#2a3f60;font-size:13px}
+.ctis-link .d{font-size:11.5px;color:#64748b;margin-top:2px;line-height:1.3}
+</style>
+"""
+
+
+def _cp_rank(vals, code, better):
+    arr = sorted(((c, v) for c, v in vals.items() if v is not None),
+                 key=lambda o: o[1], reverse=(better == "high"))
+    return [c for c, _ in arr].index(code) + 1
+
+
+def _cp_bar(vals, code, better, flags, code2name):
+    items = [(c, v) for c, v in vals.items() if v is not None]
+    vs = [v for _, v in items]
+    mn, mx = min(vs), max(vs)
+    span = (mx - mn) or 1
+
+    def pos(v):
+        p = (v - mn) / span
+        if better == "low":
+            p = 1 - p
+        return 6 + p * 88
+
+    dots = "".join(
+        f'<span class="cp-dot" style="left:{pos(v):.1f}%"></span>'
+        for c, v in items if c != code
+    )
+    me = dict(items).get(code)
+    mehtml = ""
+    if me is not None:
+        flag = flags.get(code2name.get(code, ""), "")
+        mehtml = (f'<span class="cp-me" style="left:{pos(me):.1f}%">{flag}</span>'
+                  f'<span class="cp-tick" style="left:{pos(me):.1f}%"></span>')
+    return f'<div class="cp-bar">{dots}{mehtml}</div>'
+
+
+def _cp_card(title, sub, value, unit, vals, code, better, code2name, flags, badge=None):
+    rank = _cp_rank(vals, code, better)
+    badge_html = ""
+    if badge:
+        bg = "#3d8b40" if badge == "강점" else "#d9534f"
+        badge_html = f'<div class="cp-badge" style="background:{bg}">{badge}</div>'
+    sub_html = f"<small>{sub}</small>" if sub else ""
+    return (
+        f'<div class="cp-card"><div class="cp-hd"><div class="cp-t">{title}{sub_html}</div></div>'
+        f'<div class="cp-mid">{badge_html}<div class="cp-val">{value}<span class="cp-u">{unit}</span></div></div>'
+        f'<div class="cp-rankbox"><div class="cp-rl">5개국 중 <b>{rank}위</b></div>'
+        f'{_cp_bar(vals, code, better, flags, code2name)}'
+        f'<div class="cp-ends"><span>하위</span><span>상위</span></div></div></div>'
+    )
+
+
+def _render_country_landing():
+    """벤치마킹 반영: Climate Watch식 국가 경쟁력 프로파일 (mockups/country-profile-cards 이식)"""
+    df, cat_stats, country_stats, type_stats = load_2025_data()
+    cat_col = ("category" if "category" in df.columns
+               else ("category_38" if "category_38" in df.columns else None))
+    codes, names = COUNTRY_CODES, COUNTRIES
+    code2name = dict(zip(codes, names))
+    name2code = dict(zip(names, codes))
+
+    # 카테고리별 5개국 평균 수준 → 분야 선도국 카운트
+    cat_levels = {}
+    if cat_col:
+        for cat, g in df.groupby(cat_col):
+            cat_levels[cat] = {cc: float(g[f"{cc}_level"].mean())
+                               for cc in codes if f"{cc}_level" in df.columns}
+    leading_cat = {cc: 0 for cc in codes}
+    for cat, lv in cat_levels.items():
+        if lv:
+            leading_cat[max(lv, key=lv.get)] += 1
+
+    summary = {}
+    for cc in codes:
+        lvcol, gpcol = f"{cc}_level", f"{cc}_gap"
+        summary[cc] = {
+            "avg_level": float(df[lvcol].mean()) if lvcol in df.columns else 0,
+            "avg_gap": float(df[gpcol].mean()) if gpcol in df.columns else 0,
+            "leading_count": (int(df["leading_country"].str.contains(code2name[cc], na=False).sum())
+                              if "leading_country" in df.columns else 0),
+            "leading_cat": leading_cat[cc],
+        }
+
+    sel_name = st.selectbox("국가 선택", names, index=0, key="cp_country")
+    sel = name2code[sel_name]
+
+    st.markdown(_CP_CSS, unsafe_allow_html=True)
+    st.markdown(f"#### {COUNTRY_FLAGS[sel_name]} {sel_name}의 기후기술 경쟁력 지표")
+    st.caption("에너지·산업·적응 등 38대 분야 / 157개 세부기술 대표 지표와 5개국(한·중·일·미·EU) 중 순위")
+
+    # 종합 경쟁력 4 카드
+    aggs = [
+        ("평균 기술수준", "157개 세부기술 평균", "avg_level", "%", "high", lambda v: f"{v:.1f}"),
+        ("선도기술 보유", "최고기술 보유 수", "leading_count", "개", "high", lambda v: f"{int(v)}"),
+        ("선도 분야", "38대 분야 중 선도", "leading_cat", "개", "high", lambda v: f"{int(v)}"),
+        ("최고국 대비 평균 격차", "작을수록 우수", "avg_gap", "개월", "low", lambda v: f"{v:.1f}"),
+    ]
+    html = ""
+    for title, sub, key, unit, better, fmt in aggs:
+        vals = {cc: summary[cc][key] for cc in codes}
+        html += _cp_card(title, sub, fmt(vals[sel]), unit, vals, sel, better, code2name, COUNTRY_FLAGS)
+    st.markdown(f'<div class="cp-grid cp4">{html}</div>', unsafe_allow_html=True)
+
+    # 분야별 강점/약점
+    if cat_col and cat_levels:
+        sel_levels = {cat: lv.get(sel, 0) for cat, lv in cat_levels.items() if lv}
+        ranked = sorted(sel_levels, key=sel_levels.get, reverse=True)
+        strong, weak = ranked[:3], ranked[-3:][::-1]
+        st.markdown(f"###### 분야별 경쟁력 · {sel_name} 강점 3 · 약점 3")
+        fhtml = ""
+        for cat in strong + weak:
+            vals = {cc: cat_levels[cat].get(cc, 0) for cc in codes}
+            kind = "강점" if cat in strong else "약점"
+            fhtml += _cp_card(cat, "", f"{vals[sel]:.1f}", "%", vals, sel, "high",
+                              code2name, COUNTRY_FLAGS, badge=kind)
+        st.markdown(f'<div class="cp-grid cp3">{fhtml}</div>', unsafe_allow_html=True)
+
+    st.caption("출처: CTis 기후기술 수준조사(2025) · 순위 막대는 5개국 분포, 굵은 표식=선택 국가(오른쪽=우수)")
+
+
+def _render_ctis_links():
+    """CTis 실제 기능 연계 바로가기 (ctos pages.md 기준 실제 메뉴)"""
+    base = "https://www.ctis.re.kr/menu.es?mid="
+    items = [
+        ("📊 R&D 투자·성과", base + "a10201010100", "38대 기술별 국가 R&D 투자·성과 분석"),
+        ("🧭 정책시계열", base + "a10401010000", "기술·부처별 정책 제·개정 이력"),
+        ("📰 정책 보도자료", base + "a10402010000", "최신 기후기술 정책 보도자료"),
+        ("🗂 기술인벤토리", base + "a10304010000", "38↔100↔45대 분류·기술 상세"),
+    ]
+    st.markdown("###### CTis 연계 — 관련 기능 바로가기")
+    cols = st.columns(len(items))
+    for col, (t, url, desc) in zip(cols, items):
+        with col:
+            st.markdown(
+                f'<div class="ctis-link"><div class="t">{t}</div><div class="d">{desc}</div></div>',
+                unsafe_allow_html=True,
+            )
+            st.link_button("바로가기 ↗", url, use_container_width=True)
+
+
 def render_overview():
     """전체 탭 — 통계 개요 + 5개국 비교 + 시계열"""
+
+    # ── 벤치마킹 반영: Climate Watch식 국가 경쟁력 프로파일 + CTis 연계 ──
+    _render_country_landing()
+    _render_ctis_links()
+    st.markdown("---")
 
     # ── 통계 개요 ──
     with st.expander("통계 개요", expanded=False):
