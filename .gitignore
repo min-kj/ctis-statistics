@@ -9,7 +9,7 @@ src/schemas/
 src/전체 *
 src/기술개발활동조사 *
 
-# 문서/노트북/테스트 (필요시 해제)
-docs/
+# 문서: 추적함. 단 스크린샷 png 는 용량 커서 제외
+docs/screenshots/
 notebooks/
 tests/

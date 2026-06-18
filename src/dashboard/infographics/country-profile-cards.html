@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국가별 기후기술 경쟁력 지표 — CTis</title>
+<style>
+  :root{
+    --ink:#1f3354; --ink2:#64748b; --line:#e7ebf1; --bg:#ffffff; --panel:#f7f9fc;
+    --green1:#2d5016; --green2:#4a7c23;
+    --c-kr:#FF6B6B; --c-cn:#4ECDC4; --c-jp:#45B7D1; --c-us:#96CEB4; --c-eu:#FECA57;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+       color:var(--ink);background:#fff;line-height:1.5}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px 70px}
+
+  .top{padding:30px 0 8px}
+  h1{margin:0 0 8px;font-size:24px;font-weight:800;color:#16263f}
+  .lead{font-size:14.5px;color:var(--ink2);margin:0;max-width:880px}
+
+  /* country selector */
+  .picker{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 6px}
+  .pick{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:#fff;border-radius:10px;
+        padding:8px 14px;cursor:pointer;font-weight:700;font-size:14px;color:var(--ink);transition:.15s}
+  .pick:hover{border-color:#cbd5e1}
+  .pick .flag{font-size:18px}
+  .pick.active{color:#fff;border-color:transparent}
+  .pick .rank{font-size:11px;color:var(--ink2);font-weight:600}
+  .pick.active .rank{color:rgba(255,255,255,.85)}
+
+  /* cards */
+  .sec-h{font-size:13px;font-weight:800;color:var(--ink2);letter-spacing:.3px;text-transform:uppercase;
+         margin:26px 0 12px;display:flex;align-items:center;gap:10px}
+  .sec-h::after{content:"";flex:1;height:1px;background:var(--line)}
+  .grid{display:grid;gap:18px}
+  .cols3{grid-template-columns:repeat(3,1fr)}
+  .cols4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:980px){.cols4{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:820px){.cols3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.cols3,.cols4{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;
+        min-height:268px;background:#fff;transition:.15s}
+  .card:hover{box-shadow:0 10px 26px rgba(20,40,80,.08);transform:translateY(-2px)}
+  .card .hd{background:var(--panel);padding:16px 18px;display:flex;justify-content:space-between;gap:8px;
+            align-items:flex-start;min-height:64px}
+  .card .hd .t{font-size:14px;font-weight:800;color:#2a3f60;line-height:1.35}
+  .card .hd .t small{display:block;font-weight:600;color:var(--ink2);font-size:11.5px;margin-top:2px}
+  .card .hd .i{flex:none;width:16px;height:16px;border-radius:50%;border:1.4px solid #b7c2d4;color:#b7c2d4;
+               font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:help}
+  .badge{position:absolute;top:0;left:0;font-size:10px;font-weight:800;color:#fff;padding:3px 9px;border-radius:0 0 8px 0}
+  .card .mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;position:relative}
+  .val{font-size:40px;font-weight:800;color:#2a3f60;line-height:1}
+  .val .u{font-size:16px;font-weight:700;color:var(--ink2);margin-left:3px}
+  .val.small{font-size:30px}
+  .delta{font-size:12px;color:var(--ink2);margin-top:8px}
+
+  /* rank bar (signature) */
+  .rankbox{padding:0 18px 18px}
+  .rank-lbl{text-align:center;font-size:12.5px;color:var(--ink2);margin-bottom:9px}
+  .rank-lbl b{color:#2a3f60;font-weight:800}
+  .bar{position:relative;height:8px;border-radius:6px;
+       background:linear-gradient(90deg,#e8615f 0%,#f0a35e 22%,#f2d97b 44%,#bcd6a6 62%,#7fb6d6 80%,#3d6fb0 100%)}
+  .bar .dot{position:absolute;top:50%;width:11px;height:11px;border-radius:50%;background:#fff;
+            border:2px solid #9aa7bb;transform:translate(-50%,-50%);font-size:0}
+  .bar .tick{position:absolute;top:-4px;width:3px;height:16px;border-radius:2px;background:#16263f;
+             transform:translateX(-50%);box-shadow:0 0 0 2px #fff}
+  .bar .me{position:absolute;top:-24px;transform:translateX(-50%);font-size:13px}
+  .ends{display:flex;justify-content:space-between;font-size:10px;color:#9aa7bb;margin-top:5px}
+
+  .note{font-size:12px;color:var(--ink2);margin-top:30px;padding-top:16px;border-top:1px solid var(--line)}
+  a.cross{color:var(--green2);font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1 id="q">한국의 기후기술 경쟁력 지표는?</h1>
+    <p class="lead" id="lead"></p>
+    <div class="picker" id="picker"></div>
+  </div>
+
+  <div class="sec-h">종합 경쟁력 <span style="text-transform:none;font-weight:600;color:#9aa7bb">· 5개국 비교 순위</span></div>
+  <div class="grid cols4" id="agg"></div>
+
+  <div class="sec-h">분야별 경쟁력 <span style="text-transform:none;font-weight:600;color:#9aa7bb" id="sec-sub"></span></div>
+  <div class="grid cols3" id="sectors"></div>
+
+  <p class="note" id="note"></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+(async function(){
+  let D = window.CTIS_DATA;
+  if(!D){ try{ D=await (await fetch('data.json')).json(); }catch(e){
+    document.body.innerHTML='<p style="padding:40px">data.js / data.json 을 찾을 수 없습니다. extract_data.py 를 먼저 실행하세요.</p>'; return;} }
+  init(D);
+})();
+
+function init(D){
+  const C={}; D.meta.countries.forEach(c=>C[c.code]=c);
+  const flagImg=(code,w)=>{const c=C[code]||{};const nm=c.name||code;
+    return `<img class="fimg" src="${c.img||('flags/'+code+'.png')}" alt="${nm}" style="width:${w}px;height:auto;border-radius:2px;vertical-align:-2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">`;};
+  const order=D.meta.countries.map(c=>c.code);
+  const SUM={}; D.country_summary.forEach(s=>SUM[s.code]=s);
+  const fieldLevels={}; D.categories.forEach(c=>fieldLevels[c.name]=c.levels); // 분야명→5개국 수준
+  let sel='kr';
+
+  document.getElementById('lead').textContent =
+    `에너지·산업·적응 등 ${D.meta.n_category}대 분야 / ${D.meta.n_detail}개 세부기술에 대한 대표 지표와 5개국(한·중·일·미·EU) 중 순위입니다.`;
+  document.getElementById('note').innerHTML =
+    `출처: ${D.meta.source}. 순위 막대는 5개국 분포이며 굵은 표식이 선택 국가입니다(오른쪽=우수). `+
+    `· 분야별 선도 지형은 <a class="cross" href="country-leadership-landscape-v2.html">선도 지형 페이지</a>에서.`;
+
+  // 국가 선택
+  const pk=document.getElementById('picker');
+  D.meta.countries.forEach(c=>{
+    const s=SUM[c.code];
+    const rankLevel = rankOf(valuesFor('avg_level'), c.code, 'high');
+    const el=document.createElement('button');
+    el.className='pick'; el.dataset.code=c.code;
+    el.innerHTML=`${flagImg(c.code,18)} ${c.name}<span class="rank">선도 ${s.leading_count}</span>`;
+    el.onclick=()=>{sel=c.code; render();};
+    pk.appendChild(el);
+  });
+
+  // 집계지표 정의
+  const AGG=[
+    {title:'평균 기술수준', sub:`${D.meta.n_detail}개 세부기술 평균`, key:'avg_level', unit:'%', better:'high', fmt:v=>v.toFixed(1)},
+    {title:'선도기술 보유', sub:`${D.meta.n_detail}개 중 최고기술 보유 수`, key:'leading_count', unit:'개', better:'high', fmt:v=>v},
+    {title:'선도 분야', sub:`${D.meta.n_category}대 분야 중 선도`, key:'leading_categories', unit:'개', better:'high', fmt:v=>v},
+    {title:'최고국 대비 평균 격차', sub:'작을수록 우수', key:'avg_gap', unit:'개월', better:'low', fmt:v=>v.toFixed(1)},
+  ];
+
+  function valuesFor(key){ const o={}; order.forEach(c=>o[c]=SUM[c][key]); return o; }
+
+  function render(){
+    // picker 상태
+    document.querySelectorAll('.pick').forEach(p=>{
+      const on=p.dataset.code===sel; p.classList.toggle('active',on);
+      p.style.background=on?C[sel].color:'';
+    });
+    document.getElementById('q').innerHTML = `${flagImg(sel,22)} ${C[sel].name}의 기후기술 경쟁력 지표는?`;
+    const s=SUM[sel];
+    document.getElementById('sec-sub').textContent = `· ${C[sel].name} 강점 3 · 약점 3 분야`;
+
+    // 집계 카드
+    const agg=document.getElementById('agg'); agg.innerHTML='';
+    AGG.forEach(m=>{
+      const vals=valuesFor(m.key);
+      agg.appendChild(makeCard({
+        title:m.title, sub:m.sub, value:m.fmt(vals[sel]), unit:m.unit,
+        vals, code:sel, better:m.better
+      }));
+    });
+
+    // 분야 카드 (강점 3 + 약점 3)
+    const sec=document.getElementById('sectors'); sec.innerHTML='';
+    s.strong.forEach(f=> sec.appendChild(fieldCard(f,'강점')));
+    s.weak.forEach(f=> sec.appendChild(fieldCard(f,'약점')));
+  }
+
+  function fieldCard(f,kind){
+    const vals=fieldLevels[f.name]||{};
+    const card=makeCard({title:f.name, value:(vals[sel]!=null?vals[sel].toFixed(1):'-'), unit:'%',
+                         vals, code:sel, better:'high'});
+    const b=document.createElement('div'); b.className='badge';
+    b.textContent=kind; b.style.background = kind==='강점'?'#3d8b40':'#d9534f';
+    card.querySelector('.mid').appendChild(b);
+    return card;
+  }
+
+  function makeCard({title,sub,value,unit,vals,code,better}){
+    const card=document.createElement('div'); card.className='card';
+    const rank=rankOf(vals,code,better), n=order.filter(c=>vals[c]!=null).length;
+    card.innerHTML=`
+      <div class="hd"><div class="t">${title}${sub?`<small>${sub}</small>`:''}</div>
+        <div class="i" title="${title}">i</div></div>
+      <div class="mid"><div class="val${value.length>5?' small':''}">${value}<span class="u">${unit}</span></div></div>
+      <div class="rankbox">
+        <div class="rank-lbl">5개국 중 <b>${rank}위</b></div>
+        ${rankBar(vals,code,better)}
+        <div class="ends"><span>하위</span><span>상위</span></div>
+      </div>`;
+    return card;
+  }
+
+  function rankOf(vals,code,better){
+    const arr=order.filter(c=>vals[c]!=null).map(c=>({c,v:vals[c]}));
+    arr.sort((a,b)=> better==='high'? b.v-a.v : a.v-b.v);
+    return arr.findIndex(o=>o.c===code)+1;
+  }
+
+  function rankBar(vals,code,better){
+    const arr=order.filter(c=>vals[c]!=null).map(c=>({c,v:vals[c]}));
+    const vs=arr.map(o=>o.v), min=Math.min(...vs), max=Math.max(...vs), span=(max-min)||1;
+    const pos=v=>{ let p=(v-min)/span; if(better==='low') p=1-p; return (6+p*88).toFixed(1); }; // 6%~94%
+    let dots=arr.filter(o=>o.c!==code).map(o=>
+      `<span class="dot" style="left:${pos(o.v)}%" title="${C[o.c].name} ${o.v}"></span>`).join('');
+    const me=arr.find(o=>o.c===code);
+    const meHtml = me ? `<span class="me" style="left:${pos(me.v)}%">${flagImg(code,16)}</span>
+                         <span class="tick" style="left:${pos(me.v)}%"></span>` : '';
+    return `<div class="bar">${dots}${meHtml}</div>`;
+  }
+
+  render();
+}
+</script>
+</body>
+</html>

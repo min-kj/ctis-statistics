@@ -1,0 +1,4161 @@
+{
+  "meta": {
+    "year": 2025,
+    "title": "기후기술 국가별 선도 지형 2025",
+    "subtitle": "기후기술수준조사 · 38대 분야 / 157개 세부기술 · 한·중·일·미·EU 비교",
+    "source": "국가녹색기술연구소(NIGT) 2025 기후기술수준조사 (2차 델파이)",
+    "n_detail": 157,
+    "n_category": 38,
+    "gap_unit": "month",
+    "countries": [
+      {
+        "code": "kr",
+        "name": "한국",
+        "flag": "🇰🇷",
+        "color": "#FF6B6B",
+        "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA1CAMAAADh9px2AAAA3lBMVEX///8AR6DNLjoAAADt7e0UFBQODg7p6em3t7fz8vP5+PhXV1egoKBOTk6np6caGhqamppCQkKRkZG8vLzj4+M7OzsJCQm0MEYRRJfAMUNcXFxkZGTHx8evr69xcXGzs7O6y+TRPUjonqRyOWgRU6bV1dVJSUk1NTVtlsnihY2lvt79/P0cRJL0zdDvub4sLCxfX19Gerrca3SQrtZfO3DV4O/XWGGCpNA3QITUcX1cicL21tlUhL/ki5KlMk6/v7+9r8UhX6xxb5+TNVf55edCPn8nTpi2cYnVo7HMzMwEGb/sAAACqUlEQVRYw+2XaXOiQBCGgR5uDUQELxCjxgtjvHJnk72P//+HdoaIjgrMSKVqa6vSVX4Q22d46aH7HUH4iP8imhW+vIrJl3cG4PDkaQBnPHmqDGXDZSId1yiDrHIAcRpqg4dQXhJSPWgjvDSbVwIIfICKppSyk2xFqwD4WHSJxasqYOoWuLoM59lZ51jFECyjeX3JApLUFnjVJijV/GWrAC2dWWkbQHOIYIYY8mCw6FeHUemqB3MiGD/uAXX5qjteLsfdmbFXOsEFSzdBUXMFWzoRXKbS9PGFtImL7hapDn2El28ha2/pY8EOFmufUUK6W1yMnO1UK1qSnwm8vG6R6qq7/aUvpYMYR5ufBmAhomg+zKu0PsfVpQTfSkfxQFfaI5XOf0HlEhYcbL59klKiu3vnA1vWWBsRGTIke+tJSo0rqtKI42X23STrVzrwNqm065/UFqNOQ8q/xVPjawZPGhcE/jwEfev1XuLdWIx3I9ZoWmNdF3H8IBe/FwJ2xDXFq03Ft6jXij7EiSi+HPMwsSHNigLriehaXdxFryDwhtxNj2ydRo/miVPpqVhV+vHf79f34kE0omLARzEjHgruw0kW8PdpHH+4eZejL+m86aZvo+EfDhzdbTrpwM+ndJsg7ofJABil8e6oyVdi9UMdz2OV8izPx7znpHnhjo0/zbyOjWcKHqAmNUSjo3t8jChLYIKsz3PcA5liWHAYUFNv0qdx/RU19cIQ54V5Uy+ey3jlvfFtrLbI/kin5zK2BOX8uUwm2byqtNV9o2Z0VqPFYnHX2Td9gtpWVIZzIJULUSDbAYe3sa0QOUwXSwRzui+Px32R1CafPyRWicMfEjFvhi7fwYbEzIUcDvZEjz3gOQUQU+wyHUZ8ClB4TgHvfk4RBPOdT1If8a/jL1S9MUKKtUGPAAAAAElFTkSuQmCC"
+      },
+      {
+        "code": "cn",
+        "name": "중국",
+        "flag": "🇨🇳",
+        "color": "#4ECDC4",
+        "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA1CAMAAADh9px2AAAANlBMVEXuHCX//wDwLyHyVBvuIiP5qw3xPx71dRX+5wP3jRL4mRD/9gHzXxnySxz7wQn6tgv7ygj80QdOKUmjAAAAwElEQVQYGe3BSXLDMAwEwBkQBFct+f9nbSVOpORIwYdUsRv/msKTmBS42lvEbYZTZKuKe2TFDytrwl2JgpME3LUy4TcxKIYpueKPHAsGaDgUsoXDghepjQtG9MbTh+FFLcaqGCE7v1VcFMUYReGnHHClGLfxkOBFGw8RXjqZK9kUV0EwKnJTWGbHSUKsQTBEc8KTxoiLQhaMMcOXjgvL2eBpEQlws8CTpFThKnLvcCSZ2wJHoj3BmWCapmmapumtHrOgA8RDdxj4AAAAAElFTkSuQmCC"
+      },
+      {
+        "code": "jp",
+        "name": "일본",
+        "flag": "🇯🇵",
+        "color": "#45B7D1",
+        "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA1CAMAAADh9px2AAAAOVBMVEW8AC3ILFHUW3jbdY3DG0PghpvmoLH////kl6n55ur22uC/Czb+/Pzxy9TKNlntu8fPSWnrsb7MP2AZmjhmAAAA40lEQVRYw+3Wyw6EIAwF0PK0vETn/z92Nm6M0rGFZBZy1+SEQCgXlsGBCU7wtWDcvXN+j2PA4BQcUS50g1HDKTr2gR4uwR7QwU2cHNRwGyMFPTSCMrBAM0UCZtsGbRaAHoh4AbhS4MoHI5AJbNDRILLBjQY1G1xp8MMGLQ1aLpjhR/K/d7goGlSjb3ljg4YGHRssNBj5b1mJjpAAUfTyqHlIbHHNoomdWl4qg/8UL/31zOBfr3Ex2NMc6uUcU+3rNsGcyGR+1aUH7Qv1MXmsxv72daAVsYZHS5822DxL+wRfDX4B50xfz1QVWiYAAAAASUVORK5CYII="
+      },
+      {
+        "code": "us",
+        "name": "미국",
+        "flag": "🇺🇸",
+        "color": "#96CEB4",
+        "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAqCAMAAAATdiw4AAAAS1BMVEWzGUL///8KMWHsxtDZjKHGU3IMNGMgQ28nSXQ1VX1xXYBgeZiJnLP//v7CzNhGZIgRN2bl6e9RbY+xvc1wh6Prxc+Zqr709vhyX4F3rzwPAAABHklEQVRIx+2UwW7CMBQEzQD77MYkjgmh//+lvUAhFkplK4dWdA5W5rJStKvn+AFXCzYFUNcJwmSUXh+ofgBiBIZelF4fiBKBlAgkyWzp7Ou4OIBu9ODHDnQ+69lhV8fJgWGelOQNw/ulNwRaP4BiFAy9UfqhEgcxILoOEaJQ4Q2lQJgNbA6gadKz0xb4ai4351iJgw7AB7h9Lr2hlOtjLlej9IbZrA+7IRDyaGBjBs2znr2pFMMPKGkwjBCW3hDo+3wfcu49pTdcm2LYhTcdhxANLD6G/e20lbI27IbATJJ8kBKZlMgkcfeG4/DyDj68oRTvgdsjSq8O/PxYp/qXT7tNOW0feNlvysW9Ib+/5c0DjxvzB1o+bMz/cXgHvgD4OyGtUE286gAAAABJRU5ErkJggg=="
+      },
+      {
+        "code": "eu",
+        "name": "EU",
+        "flag": "🇪🇺",
+        "color": "#FECA57",
+        "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA1CAMAAADh9px2AAAAQlBMVEUAM5kENpZkb1wMOpEdRIcuTnx4e1D/ywBVZmX4yAI6VnWTi0DHqiCckDqKhkXovgwFNpSomDO4oSnOrhzYtBZKX2uk3AMzAAABPUlEQVQYGe3B2Y6jMBBA0eu1ygaz5/9/dSBqtdSRIJjkbTiH2+1XznxXKXyFyWy0F+mVTR74hB15yiKZp1G5Ls9JFsuqs7ZjZRdJc+YqE0QiGweOTRQJXGfnsfBHKbNyXYDAHwEClwwcGqjVcKihitFHsurZ4dWmhxoq2CTSsasTSUqVNvUc6FNLlaExMbArRNMM3A553vJU8CNvjZ6zQmlTEzkUmzSVwElWpHUccq2I5SyfUsMbJSXHWaqu4Y3GqXKW4b/kOeSpNQ0cMBNVTDPKVDw7fJlk7AwVfC8psysn6T1V5rZnn+nbmSpGyZ5dIaMDtQyrgRcDH/GRF9Hzidjyoo1cF2aRRdl4z0YXkTZwmU+iPHUdTyrJcV2Mj8JKl5QWZTU+ush1DhwbFVE2Dhxf0E1T5JsCBG63H/8AhrUJO3XKJvQAAAAASUVORK5CYII="
+      }
+    ],
+    "type_color": {
+      "감축": "#4a7c23",
+      "적응": "#2196F3"
+    }
+  },
+  "categories": [
+    {
+      "no": "01",
+      "name": "태양광 기술",
+      "name_full": "01. 태양광 기술",
+      "type": "감축",
+      "leader": "cn",
+      "lead_counts": {
+        "cn": 4,
+        "eu": 1
+      },
+      "levels": {
+        "kr": 91.9,
+        "cn": 96.9,
+        "jp": 89.6,
+        "us": 89.5,
+        "eu": 91.5
+      },
+      "n_detail": 5,
+      "details": [
+        {
+          "no": "1",
+          "name": "1.박막 기반 탠덤 태양전지",
+          "leader": "cn",
+          "levels": {
+            "cn": 98.3,
+            "eu": 93.8,
+            "jp": 88.4,
+            "kr": 94.7,
+            "us": 90.2
+          },
+          "gaps": {
+            "cn": 2.0,
+            "eu": 8.63,
+            "jp": 16.5,
+            "kr": 9.25,
+            "us": 11.88
+          }
+        },
+        {
+          "no": "2",
+          "name": "2.페로브스카이트/실리콘 탠덤 태양전지",
+          "leader": "cn",
+          "levels": {
+            "cn": 100.0,
+            "eu": 91.1,
+            "jp": 83.6,
+            "kr": 93.9,
+            "us": 85.8
+          },
+          "gaps": {
+            "cn": 0.06,
+            "eu": 14.0,
+            "jp": 24.19,
+            "kr": 12.75,
+            "us": 21.81
+          }
+        },
+        {
+          "no": "3",
+          "name": "3.건물형 및 입지 다변형 태양광",
+          "leader": "cn",
+          "levels": {
+            "cn": 96.9,
+            "eu": 89.1,
+            "jp": 89.9,
+            "kr": 90.6,
+            "us": 90.3
+          },
+          "gaps": {
+            "cn": 3.0,
+            "eu": 21.25,
+            "jp": 12.62,
+            "kr": 12.62,
+            "us": 13.0
+          }
+        },
+        {
+          "no": "4",
+          "name": "4.다기능 태양전지",
+          "leader": "cn",
+          "levels": {
+            "cn": 95.3,
+            "eu": 86.6,
+            "jp": 93.0,
+            "kr": 90.9,
+            "us": 91.2
+          },
+          "gaps": {
+            "cn": 3.31,
+            "eu": 23.89,
+            "jp": 8.31,
+            "kr": 14.94,
+            "us": 8.94
+          }
+        },
+        {
+          "no": "5",
+          "name": "5.폐태양광 재활용·재사용",
+          "leader": "eu",
+          "levels": {
+            "cn": 93.8,
+            "eu": 96.9,
+            "jp": 93.3,
+            "kr": 89.3,
+            "us": 90.1
+          },
+          "gaps": {
+            "cn": 10.33,
+            "eu": 4.13,
+            "jp": 6.4,
+            "kr": 16.13,
+            "us": 12.73
+          }
+        }
+      ]
+    },
+    {
+      "no": "02",
+      "name": "태양열 기술",
+      "name_full": "02. 태양열 기술",
+      "type": "감축",
+      "leader": "cn",
+      "lead_counts": {
+        "cn": 2
+      },
+      "levels": {
+        "kr": 72.5,
+        "cn": 98.8,
+        "jp": 77.8,
+        "us": 89.8,
+        "eu": 91.7
+      },
+      "n_detail": 2,
+      "details": [
+        {
+          "no": "6",
+          "name": "6.태양열 집열·변환",
+          "leader": "cn",
+          "levels": {
+            "cn": 98.2,
+            "eu": 93.0,
+            "jp": 74.0,
+            "kr": 68.4,
+            "us": 88.6
+          },
+          "gaps": {
+            "cn": 4.07,
+            "eu": 10.67,
+            "jp": 34.93,
+            "kr": 49.71,
+            "us": 22.86
+          }
+        },
+        {
+          "no": "7",
+          "name": "7.태양열 응용·시스템",
+          "leader": "cn",
+          "levels": {
+            "cn": 99.3,
+            "eu": 90.4,
+            "jp": 81.7,
+            "kr": 76.6,
+            "us": 91.1
+          },
+          "gaps": {
+            "cn": 1.79,
+            "eu": 18.14,
+            "jp": 38.43,
+            "kr": 53.64,
+            "us": 25.71
+          }
+        }
+      ]
+    },
+    {
+      "no": "03",
+      "name": "풍력 기술",
+      "name_full": "03. 풍력 기술",
+      "type": "감축",
+      "leader": "eu",
+      "lead_counts": {
+        "eu": 5
+      },
+      "levels": {
+        "kr": 72.7,
+        "cn": 85.3,
+        "jp": 73.2,
+        "us": 88.0,
+        "eu": 97.1
+      },
+      "n_detail": 5,
+      "details": [
+        {
+          "no": "10",
+          "name": "10.수직축 부유식 풍력발전",
+          "leader": "eu",
+          "levels": {
+            "cn": 78.0,
+            "eu": 92.5,
+            "jp": 72.1,
+            "kr": 66.7,
+            "us": 89.6
+          },
+          "gaps": {
+            "cn": 41.4,
+            "eu": 18.4,
+            "jp": 53.07,
+            "kr": 55.33,
+            "us": 18.4
+          }
+        },
+        {
+          "no": "11",
+          "name": "11.해상풍력 설치·시공",
+          "leader": "eu",
+          "levels": {
+            "cn": 86.7,
+            "eu": 98.5,
+            "jp": 77.6,
+            "kr": 79.6,
+            "us": 83.8
+          },
+          "gaps": {
+            "cn": 26.94,
+            "eu": 3.31,
+            "jp": 43.06,
+            "kr": 41.5,
+            "us": 31.88
+          }
+        },
+        {
+          "no": "12",
+          "name": "12.해상풍력 발전 운영·관리",
+          "leader": "eu",
+          "levels": {
+            "cn": 86.9,
+            "eu": 100.0,
+            "jp": 73.9,
+            "kr": 73.9,
+            "us": 84.1
+          },
+          "gaps": {
+            "cn": 27.87,
+            "eu": 0.0,
+            "jp": 47.93,
+            "kr": 46.33,
+            "us": 30.47
+          }
+        },
+        {
+          "no": "8",
+          "name": "8.초대형 풍력 터빈",
+          "leader": "eu",
+          "levels": {
+            "cn": 94.5,
+            "eu": 98.5,
+            "jp": 68.4,
+            "kr": 71.7,
+            "us": 91.1
+          },
+          "gaps": {
+            "cn": 11.69,
+            "eu": 6.81,
+            "jp": 56.69,
+            "kr": 57.31,
+            "us": 18.44
+          }
+        },
+        {
+          "no": "9",
+          "name": "9.해상풍력 부유체 시스템",
+          "leader": "eu",
+          "levels": {
+            "cn": 80.6,
+            "eu": 96.0,
+            "jp": 74.0,
+            "kr": 71.7,
+            "us": 91.5
+          },
+          "gaps": {
+            "cn": 29.44,
+            "eu": 8.25,
+            "jp": 52.31,
+            "kr": 55.38,
+            "us": 15.5
+          }
+        }
+      ]
+    },
+    {
+      "no": "04",
+      "name": "해양에너지 기술",
+      "name_full": "04. 해양에너지 기술",
+      "type": "감축",
+      "leader": "eu",
+      "lead_counts": {
+        "eu": 2,
+        "us": 1
+      },
+      "levels": {
+        "kr": 77.9,
+        "cn": 78.9,
+        "jp": 76.9,
+        "us": 88.2,
+        "eu": 91.5
+      },
+      "n_detail": 3,
+      "details": [
+        {
+          "no": "13",
+          "name": "13.조석력 기반 발전",
+          "leader": "eu",
+          "levels": {
+            "cn": 86.5,
+            "eu": 95.7,
+            "jp": 65.5,
+            "kr": 84.1,
+            "us": 81.2
+          },
+          "gaps": {
+            "cn": 27.43,
+            "eu": 7.71,
+            "jp": 63.43,
+            "kr": 30.86,
+            "us": 33.43
+          }
+        },
+        {
+          "no": "14",
+          "name": "14.파도·해류기반 발전",
+          "leader": "eu",
+          "levels": {
+            "cn": 75.8,
+            "eu": 100.0,
+            "jp": 71.6,
+            "kr": 71.4,
+            "us": 88.9
+          },
+          "gaps": {
+            "cn": 52.29,
+            "eu": 0.0,
+            "jp": 51.0,
+            "kr": 62.14,
+            "us": 23.14
+          }
+        },
+        {
+          "no": "15",
+          "name": "15.해수 열에너지 활용",
+          "leader": "us",
+          "levels": {
+            "cn": 74.3,
+            "eu": 78.9,
+            "jp": 93.6,
+            "kr": 78.2,
+            "us": 94.6
+          },
+          "gaps": {
+            "cn": 54.0,
+            "eu": 46.29,
+            "jp": 14.57,
+            "kr": 46.71,
+            "us": 9.43
+          }
+        }
+      ]
+    },
+    {
+      "no": "05",
+      "name": "수력 기술",
+      "name_full": "05. 수력 기술",
+      "type": "감축",
+      "leader": "cn",
+      "lead_counts": {
+        "cn": 1,
+        "us": 1
+      },
+      "levels": {
+        "kr": 71.4,
+        "cn": 97.2,
+        "jp": 91.2,
+        "us": 94.3,
+        "eu": 85.6
+      },
+      "n_detail": 2,
+      "details": [
+        {
+          "no": "16",
+          "name": "16.수력발전 설비 및 장치",
+          "leader": "cn",
+          "levels": {
+            "cn": 97.0,
+            "eu": 87.5,
+            "jp": 91.5,
+            "kr": 71.5,
+            "us": 90.8
+          },
+          "gaps": {
+            "cn": 5.3,
+            "eu": 31.5,
+            "jp": 18.6,
+            "kr": 79.4,
+            "us": 27.0
+          }
+        },
+        {
+          "no": "17",
+          "name": "17.수력발전 운영시스템",
+          "leader": "us",
+          "levels": {
+            "cn": 97.5,
+            "eu": 83.7,
+            "jp": 91.0,
+            "kr": 71.3,
+            "us": 97.8
+          },
+          "gaps": {
+            "cn": 7.0,
+            "eu": 33.57,
+            "jp": 27.6,
+            "kr": 87.2,
+            "us": 6.6
+          }
+        }
+      ]
+    },
+    {
+      "no": "06",
+      "name": "수열 기술",
+      "name_full": "06. 수열 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 2
+      },
+      "levels": {
+        "kr": 75.3,
+        "cn": 89.8,
+        "jp": 94.5,
+        "us": 95.6,
+        "eu": 86.1
+      },
+      "n_detail": 2,
+      "details": [
+        {
+          "no": "18",
+          "name": "18.수열원 인프라",
+          "leader": "us",
+          "levels": {
+            "cn": 90.0,
+            "eu": 86.9,
+            "jp": 94.8,
+            "kr": 74.7,
+            "us": 94.9
+          },
+          "gaps": {
+            "cn": 15.73,
+            "eu": 21.4,
+            "jp": 9.47,
+            "kr": 43.6,
+            "us": 7.73
+          }
+        },
+        {
+          "no": "19",
+          "name": "19.수열 시스템",
+          "leader": "us",
+          "levels": {
+            "cn": 89.7,
+            "eu": 85.3,
+            "jp": 94.2,
+            "kr": 75.9,
+            "us": 96.3
+          },
+          "gaps": {
+            "cn": 16.13,
+            "eu": 26.07,
+            "jp": 14.53,
+            "kr": 42.4,
+            "us": 5.47
+          }
+        }
+      ]
+    },
+    {
+      "no": "07",
+      "name": "지열 기술",
+      "name_full": "07. 지열 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 2
+      },
+      "levels": {
+        "kr": 66.5,
+        "cn": 79.5,
+        "jp": 80.8,
+        "us": 97.7,
+        "eu": 90.2
+      },
+      "n_detail": 2,
+      "details": [
+        {
+          "no": "20",
+          "name": "20.지열시스템 활용",
+          "leader": "us",
+          "levels": {
+            "cn": 76.0,
+            "eu": 87.0,
+            "jp": 81.8,
+            "kr": 69.5,
+            "us": 98.5
+          },
+          "gaps": {
+            "cn": 47.55,
+            "eu": 20.18,
+            "jp": 28.0,
+            "kr": 62.73,
+            "us": 4.45
+          }
+        },
+        {
+          "no": "21",
+          "name": "21.지열자원 탐사·개발",
+          "leader": "us",
+          "levels": {
+            "cn": 82.9,
+            "eu": 93.3,
+            "jp": 79.9,
+            "kr": 63.5,
+            "us": 96.9
+          },
+          "gaps": {
+            "cn": 36.64,
+            "eu": 15.82,
+            "jp": 36.45,
+            "kr": 80.27,
+            "us": 5.73
+          }
+        }
+      ]
+    },
+    {
+      "no": "08",
+      "name": "바이오에너지 기술",
+      "name_full": "08. 바이오에너지 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "eu": 1,
+        "us": 1
+      },
+      "levels": {
+        "kr": 80.2,
+        "cn": 85.5,
+        "jp": 87.2,
+        "us": 94.8,
+        "eu": 94.5
+      },
+      "n_detail": 2,
+      "details": [
+        {
+          "no": "22",
+          "name": "22.바이오매스 발전(열, 전기 등)",
+          "leader": "eu",
+          "levels": {
+            "cn": 84.2,
+            "eu": 93.4,
+            "jp": 90.6,
+            "kr": 80.4,
+            "us": 91.8
+          },
+          "gaps": {
+            "cn": 35.5,
+            "eu": 20.19,
+            "jp": 22.87,
+            "kr": 45.0,
+            "us": 15.75
+          }
+        },
+        {
+          "no": "23",
+          "name": "23.고형 바이오연료 생산",
+          "leader": "us",
+          "levels": {
+            "cn": 86.8,
+            "eu": 95.5,
+            "jp": 83.9,
+            "kr": 80.1,
+            "us": 97.8
+          },
+          "gaps": {
+            "cn": 25.75,
+            "eu": 17.29,
+            "jp": 32.44,
+            "kr": 43.38,
+            "us": 7.88
+          }
+        }
+      ]
+    },
+    {
+      "no": "09",
+      "name": "수소?암모니아 발전기술",
+      "name_full": "09. 수소?암모니아 발전기술",
+      "type": "감축",
+      "leader": "jp",
+      "lead_counts": {
+        "jp": 3,
+        "us": 2
+      },
+      "levels": {
+        "kr": 84.1,
+        "cn": 78.9,
+        "jp": 96.4,
+        "us": 91.6,
+        "eu": 81.9
+      },
+      "n_detail": 5,
+      "details": [
+        {
+          "no": "24",
+          "name": "24.초고효율 연료전지 복합발전",
+          "leader": "jp",
+          "levels": {
+            "cn": 79.3,
+            "eu": 78.9,
+            "jp": 97.0,
+            "kr": 86.7,
+            "us": 93.4
+          },
+          "gaps": {
+            "cn": 39.33,
+            "eu": 35.27,
+            "jp": 7.2,
+            "kr": 24.4,
+            "us": 8.6
+          }
+        },
+        {
+          "no": "25",
+          "name": "25.고효율 연료전지 열병합",
+          "leader": "jp",
+          "levels": {
+            "cn": 79.5,
+            "eu": 82.9,
+            "jp": 99.0,
+            "kr": 84.9,
+            "us": 92.5
+          },
+          "gaps": {
+            "cn": 44.0,
+            "eu": 34.87,
+            "jp": 4.4,
+            "kr": 30.87,
+            "us": 15.73
+          }
+        },
+        {
+          "no": "26",
+          "name": "26.수소 혼소 가스터빈",
+          "leader": "us",
+          "levels": {
+            "cn": 76.6,
+            "eu": 88.6,
+            "jp": 94.8,
+            "kr": 84.7,
+            "us": 97.2
+          },
+          "gaps": {
+            "cn": 38.25,
+            "eu": 17.25,
+            "jp": 8.38,
+            "kr": 25.5,
+            "us": 4.5
+          }
+        },
+        {
+          "no": "27",
+          "name": "27.수소 전소 가스터빈",
+          "leader": "us",
+          "levels": {
+            "cn": 72.9,
+            "eu": 88.1,
+            "jp": 94.1,
+            "kr": 80.2,
+            "us": 96.6
+          },
+          "gaps": {
+            "cn": 42.75,
+            "eu": 14.62,
+            "jp": 9.94,
+            "kr": 33.0,
+            "us": 5.25
+          }
+        },
+        {
+          "no": "28",
+          "name": "28.석탄보일러 암모니아 혼소",
+          "leader": "jp",
+          "levels": {
+            "cn": 86.1,
+            "eu": 71.1,
+            "jp": 97.2,
+            "kr": 83.8,
+            "us": 78.1
+          },
+          "gaps": {
+            "cn": 22.44,
+            "eu": 37.94,
+            "jp": 4.5,
+            "kr": 26.62,
+            "us": 30.12
+          }
+        }
+      ]
+    },
+    {
+      "no": "10",
+      "name": "석탄액화?가스화 기술",
+      "name_full": "10. 석탄액화?가스화 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "cn": 2,
+        "us": 3
+      },
+      "levels": {
+        "kr": 83.3,
+        "cn": 95.9,
+        "jp": 92.7,
+        "us": 96.0,
+        "eu": 88.1
+      },
+      "n_detail": 5,
+      "details": [
+        {
+          "no": "29",
+          "name": "29.가스화 공정",
+          "leader": "cn",
+          "levels": {
+            "cn": 98.4,
+            "eu": 90.5,
+            "jp": 88.7,
+            "kr": 78.4,
+            "us": 94.7
+          },
+          "gaps": {
+            "cn": 3.64,
+            "eu": 15.82,
+            "jp": 35.82,
+            "kr": 52.27,
+            "us": 9.55
+          }
+        },
+        {
+          "no": "30",
+          "name": "30.합성가스 정제 및 발전",
+          "leader": "us",
+          "levels": {
+            "cn": 94.3,
+            "eu": 90.0,
+            "jp": 93.7,
+            "kr": 82.0,
+            "us": 96.7
+          },
+          "gaps": {
+            "cn": 17.64,
+            "eu": 23.91,
+            "jp": 15.27,
+            "kr": 34.18,
+            "us": 5.0
+          }
+        },
+        {
+          "no": "31",
+          "name": "31.복합설비",
+          "leader": "us",
+          "levels": {
+            "cn": 96.8,
+            "eu": 87.5,
+            "jp": 90.5,
+            "kr": 83.4,
+            "us": 97.0
+          },
+          "gaps": {
+            "cn": 8.36,
+            "eu": 30.45,
+            "jp": 19.18,
+            "kr": 35.09,
+            "us": 5.82
+          }
+        },
+        {
+          "no": "32",
+          "name": "32.석탄 업그레이드",
+          "leader": "cn",
+          "levels": {
+            "cn": 98.5,
+            "eu": 85.3,
+            "jp": 95.5,
+            "kr": 84.8,
+            "us": 95.0
+          },
+          "gaps": {
+            "cn": 3.18,
+            "eu": 28.73,
+            "jp": 9.36,
+            "kr": 45.82,
+            "us": 11.0
+          }
+        },
+        {
+          "no": "33",
+          "name": "33.오염 저감",
+          "leader": "us",
+          "levels": {
+            "cn": 91.6,
+            "eu": 87.2,
+            "jp": 94.9,
+            "kr": 87.8,
+            "us": 96.6
+          },
+          "gaps": {
+            "cn": 26.55,
+            "eu": 17.09,
+            "jp": 13.27,
+            "kr": 27.18,
+            "us": 8.27
+          }
+        }
+      ]
+    },
+    {
+      "no": "11",
+      "name": "원자력 기술",
+      "name_full": "11. 원자력 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 4,
+        "eu": 1
+      },
+      "levels": {
+        "kr": 76.0,
+        "cn": 81.9,
+        "jp": 84.6,
+        "us": 98.6,
+        "eu": 90.0
+      },
+      "n_detail": 5,
+      "details": [
+        {
+          "no": "34",
+          "name": "34.선진 원자력 시스템",
+          "leader": "us",
+          "levels": {
+            "cn": 88.2,
+            "eu": 86.3,
+            "jp": 84.2,
+            "kr": 79.9,
+            "us": 99.5
+          },
+          "gaps": {
+            "cn": 28.92,
+            "eu": 71.54,
+            "jp": 77.54,
+            "kr": 78.0,
+            "us": 0.92
+          }
+        },
+        {
+          "no": "35",
+          "name": "35.소형모듈형원자로(SMR)",
+          "leader": "us",
+          "levels": {
+            "cn": 92.4,
+            "eu": 79.0,
+            "jp": 77.2,
+            "kr": 83.0,
+            "us": 99.2
+          },
+          "gaps": {
+            "cn": 24.0,
+            "eu": 78.5,
+            "jp": 90.0,
+            "kr": 64.5,
+            "us": 7.0
+          }
+        },
+        {
+          "no": "36",
+          "name": "36.원자력 폐기물 관리",
+          "leader": "eu",
+          "levels": {
+            "cn": 77.2,
+            "eu": 100.0,
+            "jp": 83.3,
+            "kr": 70.3,
+            "us": 96.7
+          },
+          "gaps": {
+            "cn": 84.0,
+            "eu": 0.0,
+            "jp": 68.0,
+            "kr": 117.0,
+            "us": 10.5
+          }
+        },
+        {
+          "no": "37",
+          "name": "37.순환 핵연료 주기 시스템",
+          "leader": "us",
+          "levels": {
+            "cn": 81.8,
+            "eu": 94.4,
+            "jp": 89.3,
+            "kr": 70.4,
+            "us": 97.5
+          },
+          "gaps": {
+            "cn": 72.5,
+            "eu": 4.0,
+            "jp": 50.0,
+            "kr": 119.0,
+            "us": 10.0
+          }
+        },
+        {
+          "no": "38",
+          "name": "38.원자력 안전진단 및 해체",
+          "leader": "us",
+          "levels": {
+            "cn": 70.0,
+            "eu": 90.3,
+            "jp": 89.1,
+            "kr": 76.5,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 101.45,
+            "eu": 37.09,
+            "jp": 40.0,
+            "kr": 81.82,
+            "us": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "no": "12",
+      "name": "핵융합에너지 기술",
+      "name_full": "12. 핵융합에너지 기술",
+      "type": "감축",
+      "leader": "cn",
+      "lead_counts": {
+        "eu": 1,
+        "cn": 1,
+        "us": 1
+      },
+      "levels": {
+        "kr": 86.3,
+        "cn": 95.5,
+        "jp": 91.8,
+        "us": 94.6,
+        "eu": 95.3
+      },
+      "n_detail": 3,
+      "details": [
+        {
+          "no": "39",
+          "name": "39.연소 플라스마 발생 및 유지",
+          "leader": "eu",
+          "levels": {
+            "cn": 94.5,
+            "eu": 96.2,
+            "jp": 88.9,
+            "kr": 90.0,
+            "us": 91.6
+          },
+          "gaps": {
+            "cn": 18.18,
+            "eu": 10.8,
+            "jp": 28.55,
+            "kr": 27.82,
+            "us": 12.73
+          }
+        },
+        {
+          "no": "40",
+          "name": "40.핵융합 재료물질 개발",
+          "leader": "cn",
+          "levels": {
+            "cn": 96.1,
+            "eu": 96.0,
+            "jp": 92.5,
+            "kr": 78.2,
+            "us": 94.1
+          },
+          "gaps": {
+            "cn": 9.17,
+            "eu": 3.0,
+            "jp": 17.0,
+            "kr": 34.0,
+            "us": 9.25
+          }
+        },
+        {
+          "no": "41",
+          "name": "41.핵융합에너지 동력변환",
+          "leader": "us",
+          "levels": {
+            "cn": 95.9,
+            "eu": 93.7,
+            "jp": 93.9,
+            "kr": 90.6,
+            "us": 98.1
+          },
+          "gaps": {
+            "cn": 8.18,
+            "eu": 7.5,
+            "jp": 18.55,
+            "kr": 24.55,
+            "us": 4.82
+          }
+        }
+      ]
+    },
+    {
+      "no": "13",
+      "name": "수소 기술",
+      "name_full": "13. 수소 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 5,
+        "eu": 1,
+        "jp": 2
+      },
+      "levels": {
+        "kr": 82.1,
+        "cn": 88.1,
+        "jp": 93.7,
+        "us": 97.6,
+        "eu": 95.9
+      },
+      "n_detail": 8,
+      "details": [
+        {
+          "no": "42",
+          "name": "42.알칼라인 및 PEM 수전해",
+          "leader": "us",
+          "levels": {
+            "cn": 96.6,
+            "eu": 97.1,
+            "jp": 89.6,
+            "kr": 76.6,
+            "us": 98.2
+          },
+          "gaps": {
+            "cn": 7.79,
+            "eu": 3.93,
+            "jp": 23.71,
+            "kr": 49.0,
+            "us": 6.57
+          }
+        },
+        {
+          "no": "43",
+          "name": "43.차세대 수전해(고온수전해, 음이온교환막수전해 등)",
+          "leader": "eu",
+          "levels": {
+            "cn": 78.2,
+            "eu": 99.7,
+            "jp": 84.8,
+            "kr": 73.7,
+            "us": 98.9
+          },
+          "gaps": {
+            "cn": 30.21,
+            "eu": 3.14,
+            "jp": 25.29,
+            "kr": 37.14,
+            "us": 4.5
+          }
+        },
+        {
+          "no": "44",
+          "name": "44.기체수소 저장·운송",
+          "leader": "us",
+          "levels": {
+            "cn": 92.9,
+            "eu": 95.1,
+            "jp": 95.1,
+            "kr": 88.4,
+            "us": 99.5
+          },
+          "gaps": {
+            "cn": 15.57,
+            "eu": 9.64,
+            "jp": 11.79,
+            "kr": 23.71,
+            "us": 0.57
+          }
+        },
+        {
+          "no": "45",
+          "name": "45.액체수소 저장·운송",
+          "leader": "us",
+          "levels": {
+            "cn": 84.8,
+            "eu": 97.4,
+            "jp": 95.9,
+            "kr": 81.1,
+            "us": 99.5
+          },
+          "gaps": {
+            "cn": 30.92,
+            "eu": 6.08,
+            "jp": 8.54,
+            "kr": 34.69,
+            "us": 1.46
+          }
+        },
+        {
+          "no": "46",
+          "name": "46.수소 전용 배관망",
+          "leader": "us",
+          "levels": {
+            "cn": 89.5,
+            "eu": 98.5,
+            "jp": 89.4,
+            "kr": 84.9,
+            "us": 99.9
+          },
+          "gaps": {
+            "cn": 20.55,
+            "eu": 4.82,
+            "jp": 20.45,
+            "kr": 28.27,
+            "us": 0.09
+          }
+        },
+        {
+          "no": "47",
+          "name": "47.해외 암모니아-수소 대용량 저장·운송",
+          "leader": "us",
+          "levels": {
+            "cn": 89.8,
+            "eu": 96.0,
+            "jp": 96.5,
+            "kr": 82.2,
+            "us": 98.9
+          },
+          "gaps": {
+            "cn": 21.5,
+            "eu": 8.93,
+            "jp": 6.79,
+            "kr": 35.07,
+            "us": 3.29
+          }
+        },
+        {
+          "no": "48",
+          "name": "48.차세대 해외수소 저장·운송",
+          "leader": "jp",
+          "levels": {
+            "cn": 88.2,
+            "eu": 95.3,
+            "jp": 98.1,
+            "kr": 81.8,
+            "us": 96.1
+          },
+          "gaps": {
+            "cn": 26.08,
+            "eu": 7.5,
+            "jp": 2.17,
+            "kr": 33.42,
+            "us": 5.0
+          }
+        },
+        {
+          "no": "49",
+          "name": "49.액체수소 운송선 및 인수기지",
+          "leader": "jp",
+          "levels": {
+            "cn": 84.8,
+            "eu": 88.2,
+            "jp": 99.9,
+            "kr": 87.8,
+            "us": 89.9
+          },
+          "gaps": {
+            "cn": 33.0,
+            "eu": 30.5,
+            "jp": 0.08,
+            "kr": 23.33,
+            "us": 23.5
+          }
+        }
+      ]
+    },
+    {
+      "no": "14",
+      "name": "바이오매스 기술",
+      "name_full": "14. 바이오매스 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 4
+      },
+      "levels": {
+        "kr": 76.4,
+        "cn": 88.0,
+        "jp": 82.5,
+        "us": 99.5,
+        "eu": 88.2
+      },
+      "n_detail": 4,
+      "details": [
+        {
+          "no": "50",
+          "name": "50.바이오 올레핀 생산 및 응용",
+          "leader": "us",
+          "levels": {
+            "cn": 87.1,
+            "eu": 90.4,
+            "jp": 83.8,
+            "kr": 74.7,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 20.0,
+            "eu": 19.17,
+            "jp": 28.83,
+            "kr": 50.67,
+            "us": 0.08
+          }
+        },
+        {
+          "no": "51",
+          "name": "51.바이오 PEF 생산 및 응용",
+          "leader": "us",
+          "levels": {
+            "cn": 88.0,
+            "eu": 91.2,
+            "jp": 84.6,
+            "kr": 76.4,
+            "us": 98.9
+          },
+          "gaps": {
+            "cn": 22.67,
+            "eu": 17.33,
+            "jp": 31.0,
+            "kr": 45.0,
+            "us": 6.0
+          }
+        },
+        {
+          "no": "52",
+          "name": "52.바이오 폴리올 생산 및 응용",
+          "leader": "us",
+          "levels": {
+            "cn": 86.5,
+            "eu": 91.6,
+            "jp": 83.0,
+            "kr": 73.3,
+            "us": 99.1
+          },
+          "gaps": {
+            "cn": 26.17,
+            "eu": 13.17,
+            "jp": 33.33,
+            "kr": 52.0,
+            "us": 4.0
+          }
+        },
+        {
+          "no": "53",
+          "name": "53.수송용(액체, 가스) 바이오연료 생산",
+          "leader": "us",
+          "levels": {
+            "cn": 90.6,
+            "eu": 79.7,
+            "jp": 78.8,
+            "kr": 81.2,
+            "us": 99.8
+          },
+          "gaps": {
+            "cn": 18.33,
+            "eu": 38.58,
+            "jp": 47.83,
+            "kr": 39.5,
+            "us": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "no": "15",
+      "name": "폐자원 기술",
+      "name_full": "15. 폐자원 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "eu": 1,
+        "us": 2,
+        "jp": 2
+      },
+      "levels": {
+        "kr": 85.3,
+        "cn": 89.3,
+        "jp": 94.9,
+        "us": 96.7,
+        "eu": 95.3
+      },
+      "n_detail": 5,
+      "details": [
+        {
+          "no": "54",
+          "name": "54.폐플라스틱 분해 및 용매 추출",
+          "leader": "eu",
+          "levels": {
+            "cn": 86.2,
+            "eu": 98.8,
+            "jp": 93.3,
+            "kr": 83.8,
+            "us": 95.3
+          },
+          "gaps": {
+            "cn": 18.67,
+            "eu": 2.93,
+            "jp": 16.0,
+            "kr": 24.07,
+            "us": 4.4
+          }
+        },
+        {
+          "no": "55",
+          "name": "55.연료유의 기초화학연료 전환",
+          "leader": "us",
+          "levels": {
+            "cn": 85.9,
+            "eu": 94.7,
+            "jp": 90.0,
+            "kr": 82.0,
+            "us": 98.7
+          },
+          "gaps": {
+            "cn": 19.13,
+            "eu": 14.2,
+            "jp": 23.27,
+            "kr": 35.13,
+            "us": 1.6
+          }
+        },
+        {
+          "no": "56",
+          "name": "56.철강 부산물·부생가스 재자원화",
+          "leader": "jp",
+          "levels": {
+            "cn": 90.9,
+            "eu": 95.4,
+            "jp": 97.2,
+            "kr": 89.0,
+            "us": 93.9
+          },
+          "gaps": {
+            "cn": 17.67,
+            "eu": 7.27,
+            "jp": 4.4,
+            "kr": 24.73,
+            "us": 17.13
+          }
+        },
+        {
+          "no": "57",
+          "name": "57.자원순환형 플라스틱",
+          "leader": "us",
+          "levels": {
+            "cn": 90.5,
+            "eu": 97.7,
+            "jp": 95.5,
+            "kr": 84.1,
+            "us": 98.3
+          },
+          "gaps": {
+            "cn": 20.47,
+            "eu": 4.2,
+            "jp": 9.27,
+            "kr": 30.67,
+            "us": 4.8
+          }
+        },
+        {
+          "no": "58",
+          "name": "58.금속자원 회수",
+          "leader": "jp",
+          "levels": {
+            "cn": 92.9,
+            "eu": 90.1,
+            "jp": 98.4,
+            "kr": 87.8,
+            "us": 97.5
+          },
+          "gaps": {
+            "cn": 14.62,
+            "eu": 21.9,
+            "jp": 2.19,
+            "kr": 26.63,
+            "us": 8.69
+          }
+        }
+      ]
+    },
+    {
+      "no": "16",
+      "name": "발전효율 기술",
+      "name_full": "16. 발전효율 기술",
+      "type": "감축",
+      "leader": "cn",
+      "lead_counts": {
+        "cn": 3,
+        "us": 2
+      },
+      "levels": {
+        "kr": 90.9,
+        "cn": 95.8,
+        "jp": 84.7,
+        "us": 90.5,
+        "eu": 77.2
+      },
+      "n_detail": 5,
+      "details": [
+        {
+          "no": "59",
+          "name": "59.리튬계 이차전지",
+          "leader": "cn",
+          "levels": {
+            "cn": 98.2,
+            "eu": 63.8,
+            "jp": 80.8,
+            "kr": 95.0,
+            "us": 81.3
+          },
+          "gaps": {
+            "cn": 1.42,
+            "eu": 47.08,
+            "jp": 24.25,
+            "kr": 7.0,
+            "us": 28.0
+          }
+        },
+        {
+          "no": "60",
+          "name": "60.비리튬계 이차전지",
+          "leader": "cn",
+          "levels": {
+            "cn": 99.2,
+            "eu": 73.0,
+            "jp": 84.4,
+            "kr": 81.7,
+            "us": 88.2
+          },
+          "gaps": {
+            "cn": 2.5,
+            "eu": 42.5,
+            "jp": 25.83,
+            "kr": 28.08,
+            "us": 22.33
+          }
+        },
+        {
+          "no": "61",
+          "name": "61.대용량 리튬 ESS 시스템",
+          "leader": "us",
+          "levels": {
+            "cn": 94.5,
+            "eu": 77.0,
+            "jp": 85.6,
+            "kr": 92.6,
+            "us": 94.7
+          },
+          "gaps": {
+            "cn": 8.17,
+            "eu": 31.67,
+            "jp": 25.33,
+            "kr": 13.58,
+            "us": 11.5
+          }
+        },
+        {
+          "no": "62",
+          "name": "62.시스템 통합 및 운영",
+          "leader": "us",
+          "levels": {
+            "cn": 92.2,
+            "eu": 86.1,
+            "jp": 87.3,
+            "kr": 91.5,
+            "us": 96.8
+          },
+          "gaps": {
+            "cn": 11.92,
+            "eu": 22.08,
+            "jp": 19.5,
+            "kr": 13.67,
+            "us": 4.92
+          }
+        },
+        {
+          "no": "63",
+          "name": "63.사용 후 배터리 ESS 시스템",
+          "leader": "cn",
+          "levels": {
+            "cn": 94.9,
+            "eu": 86.2,
+            "jp": 85.6,
+            "kr": 93.6,
+            "us": 91.7
+          },
+          "gaps": {
+            "cn": 5.33,
+            "eu": 21.83,
+            "jp": 23.92,
+            "kr": 11.42,
+            "us": 16.75
+          }
+        }
+      ]
+    },
+    {
+      "no": "17",
+      "name": "산업효율 기술",
+      "name_full": "17. 산업효율 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "eu": 2,
+        "us": 4,
+        "jp": 1
+      },
+      "levels": {
+        "kr": 81.7,
+        "cn": 84.9,
+        "jp": 88.4,
+        "us": 93.6,
+        "eu": 94.1
+      },
+      "n_detail": 7,
+      "details": [
+        {
+          "no": "64",
+          "name": "64.저탄소 연료 대체",
+          "leader": "eu",
+          "levels": {
+            "cn": 79.4,
+            "eu": 93.1,
+            "jp": 84.3,
+            "kr": 77.9,
+            "us": 92.6
+          },
+          "gaps": {
+            "cn": 33.94,
+            "eu": 8.88,
+            "jp": 27.65,
+            "kr": 34.06,
+            "us": 16.59
+          }
+        },
+        {
+          "no": "65",
+          "name": "65.저탄소 원료 대체",
+          "leader": "us",
+          "levels": {
+            "cn": 88.2,
+            "eu": 95.6,
+            "jp": 89.2,
+            "kr": 78.4,
+            "us": 97.9
+          },
+          "gaps": {
+            "cn": 22.82,
+            "eu": 8.88,
+            "jp": 20.76,
+            "kr": 38.47,
+            "us": 5.94
+          }
+        },
+        {
+          "no": "66",
+          "name": "66.수소환원제철 기술",
+          "leader": "eu",
+          "levels": {
+            "cn": 84.2,
+            "eu": 91.2,
+            "jp": 87.1,
+            "kr": 87.7,
+            "us": 82.3
+          },
+          "gaps": {
+            "cn": 26.47,
+            "eu": 12.0,
+            "jp": 20.0,
+            "kr": 17.6,
+            "us": 25.87
+          }
+        },
+        {
+          "no": "67",
+          "name": "67.철강 공정 연∙원료 대체 및 탄소저감형 전기로",
+          "leader": "jp",
+          "levels": {
+            "cn": 86.1,
+            "eu": 94.5,
+            "jp": 95.9,
+            "kr": 88.3,
+            "us": 90.1
+          },
+          "gaps": {
+            "cn": 24.2,
+            "eu": 10.0,
+            "jp": 7.93,
+            "kr": 19.93,
+            "us": 17.0
+          }
+        },
+        {
+          "no": "68",
+          "name": "68.에너지 저감형 신공정",
+          "leader": "us",
+          "levels": {
+            "cn": 85.9,
+            "eu": 94.3,
+            "jp": 85.0,
+            "kr": 78.7,
+            "us": 97.3
+          },
+          "gaps": {
+            "cn": 21.0,
+            "eu": 8.4,
+            "jp": 25.2,
+            "kr": 35.13,
+            "us": 3.2
+          }
+        },
+        {
+          "no": "69",
+          "name": "69.석유화학 공정 무탄소 연료 활용",
+          "leader": "us",
+          "levels": {
+            "cn": 83.1,
+            "eu": 92.9,
+            "jp": 88.4,
+            "kr": 79.7,
+            "us": 97.6
+          },
+          "gaps": {
+            "cn": 28.07,
+            "eu": 12.33,
+            "jp": 18.4,
+            "kr": 30.93,
+            "us": 3.8
+          }
+        },
+        {
+          "no": "70",
+          "name": "70.산업공정 전기화",
+          "leader": "us",
+          "levels": {
+            "cn": 87.6,
+            "eu": 97.3,
+            "jp": 88.9,
+            "kr": 81.5,
+            "us": 97.3
+          },
+          "gaps": {
+            "cn": 18.13,
+            "eu": 4.87,
+            "jp": 18.33,
+            "kr": 31.2,
+            "us": 4.93
+          }
+        }
+      ]
+    },
+    {
+      "no": "18",
+      "name": "수송효율 기술",
+      "name_full": "18. 수송효율 기술",
+      "type": "감축",
+      "leader": "jp",
+      "lead_counts": {
+        "cn": 1,
+        "jp": 4,
+        "eu": 1
+      },
+      "levels": {
+        "kr": 93.0,
+        "cn": 87.8,
+        "jp": 96.1,
+        "us": 91.3,
+        "eu": 93.2
+      },
+      "n_detail": 6,
+      "details": [
+        {
+          "no": "71",
+          "name": "71.전기차 배터리 및 충전",
+          "leader": "cn",
+          "levels": {
+            "cn": 98.5,
+            "eu": 86.8,
+            "jp": 91.1,
+            "kr": 94.9,
+            "us": 93.2
+          },
+          "gaps": {
+            "cn": 2.25,
+            "eu": 24.75,
+            "jp": 19.31,
+            "kr": 13.75,
+            "us": 13.81
+          }
+        },
+        {
+          "no": "72",
+          "name": "72.전기구동 및 전력변환",
+          "leader": "jp",
+          "levels": {
+            "cn": 95.2,
+            "eu": 95.0,
+            "jp": 97.6,
+            "kr": 92.7,
+            "us": 97.4
+          },
+          "gaps": {
+            "cn": 12.21,
+            "eu": 8.29,
+            "jp": 6.0,
+            "kr": 14.36,
+            "us": 4.64
+          }
+        },
+        {
+          "no": "73",
+          "name": "73.수소차 및 충전",
+          "leader": "jp",
+          "levels": {
+            "cn": 87.5,
+            "eu": 91.6,
+            "jp": 97.5,
+            "kr": 96.7,
+            "us": 89.8
+          },
+          "gaps": {
+            "cn": 19.36,
+            "eu": 16.71,
+            "jp": 6.64,
+            "kr": 5.57,
+            "us": 19.57
+          }
+        },
+        {
+          "no": "74",
+          "name": "74.탄소중립 내연기관",
+          "leader": "eu",
+          "levels": {
+            "cn": 78.5,
+            "eu": 98.6,
+            "jp": 97.7,
+            "kr": 89.1,
+            "us": 88.1
+          },
+          "gaps": {
+            "cn": 42.43,
+            "eu": 6.0,
+            "jp": 7.21,
+            "kr": 20.79,
+            "us": 28.21
+          }
+        },
+        {
+          "no": "75",
+          "name": "75.전기/하이브리드 추진 및 배터리, 연료전지 시스템",
+          "leader": "jp",
+          "levels": {
+            "cn": 86.9,
+            "eu": 91.2,
+            "jp": 96.6,
+            "kr": 94.6,
+            "us": 89.6
+          },
+          "gaps": {
+            "cn": 22.73,
+            "eu": 15.13,
+            "jp": 9.13,
+            "kr": 11.33,
+            "us": 19.73
+          }
+        },
+        {
+          "no": "76",
+          "name": "76.연료 후처리 및 에너지효율 향상",
+          "leader": "jp",
+          "levels": {
+            "cn": 79.9,
+            "eu": 95.8,
+            "jp": 95.9,
+            "kr": 89.8,
+            "us": 89.6
+          },
+          "gaps": {
+            "cn": 37.64,
+            "eu": 8.0,
+            "jp": 11.57,
+            "kr": 19.86,
+            "us": 23.79
+          }
+        }
+      ]
+    },
+    {
+      "no": "19",
+      "name": "건물효율 기술",
+      "name_full": "19. 건물효율 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 6
+      },
+      "levels": {
+        "kr": 76.1,
+        "cn": 79.4,
+        "jp": 85.3,
+        "us": 97.5,
+        "eu": 93.1
+      },
+      "n_detail": 6,
+      "details": [
+        {
+          "no": "77",
+          "name": "77.외피 에너지 효율화 및 조명 연계형 복합 차양",
+          "leader": "us",
+          "levels": {
+            "cn": 78.2,
+            "eu": 93.5,
+            "jp": 83.9,
+            "kr": 78.8,
+            "us": 95.6
+          },
+          "gaps": {
+            "cn": 49.39,
+            "eu": 13.8,
+            "jp": 39.72,
+            "kr": 49.0,
+            "us": 12.56
+          }
+        },
+        {
+          "no": "78",
+          "name": "78.건물 설비 전기화·고효율화",
+          "leader": "us",
+          "levels": {
+            "cn": 78.9,
+            "eu": 90.2,
+            "jp": 86.2,
+            "kr": 73.3,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 39.22,
+            "eu": 19.11,
+            "jp": 27.72,
+            "kr": 56.67,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "79",
+          "name": "79.건물부문 열에너지 네트워크 및 히트펌프",
+          "leader": "us",
+          "levels": {
+            "cn": 79.1,
+            "eu": 91.8,
+            "jp": 89.2,
+            "kr": 77.8,
+            "us": 95.5
+          },
+          "gaps": {
+            "cn": 48.44,
+            "eu": 18.11,
+            "jp": 29.78,
+            "kr": 55.33,
+            "us": 7.78
+          }
+        },
+        {
+          "no": "80",
+          "name": "80.건물 신재생에너지 융합시스템",
+          "leader": "us",
+          "levels": {
+            "cn": 82.9,
+            "eu": 96.1,
+            "jp": 89.0,
+            "kr": 77.3,
+            "us": 97.2
+          },
+          "gaps": {
+            "cn": 36.47,
+            "eu": 12.06,
+            "jp": 33.82,
+            "kr": 58.71,
+            "us": 11.18
+          }
+        },
+        {
+          "no": "81",
+          "name": "81.건물부문 디지털트윈 기반 센싱 및 자율운전",
+          "leader": "us",
+          "levels": {
+            "cn": 78.6,
+            "eu": 91.6,
+            "jp": 78.1,
+            "kr": 71.8,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 42.12,
+            "eu": 18.76,
+            "jp": 47.41,
+            "kr": 62.53,
+            "us": 0.59
+          }
+        },
+        {
+          "no": "82",
+          "name": "82.도시건물에너지 사용량 분석 및 효율화 진단",
+          "leader": "us",
+          "levels": {
+            "cn": 78.4,
+            "eu": 95.6,
+            "jp": 85.4,
+            "kr": 77.5,
+            "us": 96.9
+          },
+          "gaps": {
+            "cn": 43.19,
+            "eu": 13.62,
+            "jp": 36.44,
+            "kr": 49.56,
+            "us": 3.56
+          }
+        }
+      ]
+    },
+    {
+      "no": "20",
+      "name": "이산화탄소(CO2)포집, 저장, 활용 기술",
+      "name_full": "20. 이산화탄소(CO2)포집, 저장, 활용 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 8
+      },
+      "levels": {
+        "kr": 80.0,
+        "cn": 82.7,
+        "jp": 86.4,
+        "us": 99.8,
+        "eu": 89.6
+      },
+      "n_detail": 8,
+      "details": [
+        {
+          "no": "83",
+          "name": "83.습식·건식 포집기술",
+          "leader": "us",
+          "levels": {
+            "cn": 83.9,
+            "eu": 84.6,
+            "jp": 89.4,
+            "kr": 82.2,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 38.94,
+            "eu": 39.12,
+            "jp": 25.5,
+            "kr": 48.19,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "84",
+          "name": "84.분리막 및 차세대 포집 기술",
+          "leader": "us",
+          "levels": {
+            "cn": 83.2,
+            "eu": 89.6,
+            "jp": 88.6,
+            "kr": 84.1,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 34.62,
+            "eu": 21.23,
+            "jp": 29.69,
+            "kr": 35.38,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "85",
+          "name": "85.DAC, BECCS 등 차세대 포집 기술",
+          "leader": "us",
+          "levels": {
+            "cn": 79.3,
+            "eu": 92.5,
+            "jp": 79.5,
+            "kr": 77.9,
+            "us": 99.8
+          },
+          "gaps": {
+            "cn": 48.0,
+            "eu": 18.0,
+            "jp": 52.71,
+            "kr": 53.5,
+            "us": 0.86
+          }
+        },
+        {
+          "no": "86",
+          "name": "86.이산화탄소 저장소 입지 및 설계·구축 기술",
+          "leader": "us",
+          "levels": {
+            "cn": 82.2,
+            "eu": 86.0,
+            "jp": 82.4,
+            "kr": 74.8,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 42.75,
+            "eu": 0.0,
+            "jp": 42.5,
+            "kr": 61.67,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "87",
+          "name": "87.CO2 저장소 주입 및 모니터링 기술",
+          "leader": "us",
+          "levels": {
+            "cn": 82.2,
+            "eu": 87.3,
+            "jp": 84.1,
+            "kr": 75.6,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 39.0,
+            "eu": 28.67,
+            "jp": 40.67,
+            "kr": 56.0,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "88",
+          "name": "88.화학적 전환",
+          "leader": "us",
+          "levels": {
+            "cn": 84.5,
+            "eu": 96.2,
+            "jp": 90.8,
+            "kr": 81.6,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 35.15,
+            "eu": 11.54,
+            "jp": 24.46,
+            "kr": 45.23,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "89",
+          "name": "89.생물학적 전환(CO2)",
+          "leader": "us",
+          "levels": {
+            "cn": 82.9,
+            "eu": 90.2,
+            "jp": 87.7,
+            "kr": 80.0,
+            "us": 99.6
+          },
+          "gaps": {
+            "cn": 36.17,
+            "eu": 23.33,
+            "jp": 28.0,
+            "kr": 46.67,
+            "us": 1.0
+          }
+        },
+        {
+          "no": "90",
+          "name": "90.광물탄산화",
+          "leader": "us",
+          "levels": {
+            "cn": 83.1,
+            "eu": 90.3,
+            "jp": 88.9,
+            "kr": 83.9,
+            "us": 99.3
+          },
+          "gaps": {
+            "cn": 32.14,
+            "eu": 20.14,
+            "jp": 26.14,
+            "kr": 36.0,
+            "us": 1.71
+          }
+        }
+      ]
+    },
+    {
+      "no": "21",
+      "name": "메탄(CH)처리 기술",
+      "name_full": "21. 메탄(CH)처리 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 3
+      },
+      "levels": {
+        "kr": 77.9,
+        "cn": 87.3,
+        "jp": 83.8,
+        "us": 99.5,
+        "eu": 86.7
+      },
+      "n_detail": 3,
+      "details": [
+        {
+          "no": "91",
+          "name": "91.직접전환",
+          "leader": "us",
+          "levels": {
+            "cn": 90.8,
+            "eu": 84.9,
+            "jp": 81.8,
+            "kr": 76.8,
+            "us": 99.2
+          },
+          "gaps": {
+            "cn": 14.75,
+            "eu": 41.67,
+            "jp": 34.25,
+            "kr": 43.42,
+            "us": 3.25
+          }
+        },
+        {
+          "no": "92",
+          "name": "92.생물학적 전환(CH4)",
+          "leader": "us",
+          "levels": {
+            "cn": 80.3,
+            "eu": 86.2,
+            "jp": 81.3,
+            "kr": 76.1,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 27.5,
+            "eu": 24.5,
+            "jp": 33.42,
+            "kr": 40.08,
+            "us": 0.08
+          }
+        },
+        {
+          "no": "93",
+          "name": "93.촉매 전환",
+          "leader": "us",
+          "levels": {
+            "cn": 90.7,
+            "eu": 89.0,
+            "jp": 88.4,
+            "kr": 80.9,
+            "us": 99.2
+          },
+          "gaps": {
+            "cn": 15.17,
+            "eu": 17.25,
+            "jp": 26.08,
+            "kr": 40.25,
+            "us": 1.5
+          }
+        }
+      ]
+    },
+    {
+      "no": "22",
+      "name": "기타 온실가스 처리 및 대체 기술",
+      "name_full": "22. 기타 온실가스 처리 및 대체 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 3,
+        "jp": 1
+      },
+      "levels": {
+        "kr": 89.5,
+        "cn": 79.1,
+        "jp": 95.3,
+        "us": 96.2,
+        "eu": 90.0
+      },
+      "n_detail": 4,
+      "details": [
+        {
+          "no": "94",
+          "name": "94.공정 가스 처리(반도체·디스플레이)",
+          "leader": "us",
+          "levels": {
+            "cn": 82.4,
+            "eu": 84.1,
+            "jp": 92.5,
+            "kr": 92.3,
+            "us": 96.6
+          },
+          "gaps": {
+            "cn": 34.5,
+            "eu": 39.1,
+            "jp": 16.7,
+            "kr": 13.3,
+            "us": 14.3
+          }
+        },
+        {
+          "no": "95",
+          "name": "95.공정 가스 대체(반도체·디스플레이)",
+          "leader": "us",
+          "levels": {
+            "cn": 75.4,
+            "eu": 88.2,
+            "jp": 94.8,
+            "kr": 88.0,
+            "us": 95.7
+          },
+          "gaps": {
+            "cn": 42.5,
+            "eu": 25.5,
+            "jp": 6.7,
+            "kr": 21.7,
+            "us": 4.0
+          }
+        },
+        {
+          "no": "96",
+          "name": "96.친환경 냉매",
+          "leader": "us",
+          "levels": {
+            "cn": 80.1,
+            "eu": 93.8,
+            "jp": 96.0,
+            "kr": 85.6,
+            "us": 97.9
+          },
+          "gaps": {
+            "cn": 37.78,
+            "eu": 14.78,
+            "jp": 9.89,
+            "kr": 27.44,
+            "us": 2.89
+          }
+        },
+        {
+          "no": "97",
+          "name": "97.Non-CO2 온실가스 통합관리",
+          "leader": "jp",
+          "levels": {
+            "cn": 78.6,
+            "eu": 94.0,
+            "jp": 97.8,
+            "kr": 92.1,
+            "us": 94.4
+          },
+          "gaps": {
+            "cn": 38.78,
+            "eu": 12.56,
+            "jp": 5.78,
+            "kr": 11.56,
+            "us": 10.89
+          }
+        }
+      ]
+    },
+    {
+      "no": "23",
+      "name": "탄소흡수원 기술",
+      "name_full": "23. 탄소흡수원 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 1
+      },
+      "levels": {
+        "kr": 68.6,
+        "cn": 75.7,
+        "jp": 75.9,
+        "us": 99.5,
+        "eu": 82.9
+      },
+      "n_detail": 1,
+      "details": [
+        {
+          "no": "98",
+          "name": "98.국토 및 해양공간 유형별 탄소 흡수 증진·관리",
+          "leader": "us",
+          "levels": {
+            "cn": 75.7,
+            "eu": 82.9,
+            "jp": 75.9,
+            "kr": 68.6,
+            "us": 99.5
+          },
+          "gaps": {
+            "cn": 40.3,
+            "eu": 33.0,
+            "jp": 52.4,
+            "kr": 68.6,
+            "us": 1.3
+          }
+        }
+      ]
+    },
+    {
+      "no": "24",
+      "name": "전력 통합 기술",
+      "name_full": "24. 전력 통합 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 6,
+        "cn": 1
+      },
+      "levels": {
+        "kr": 83.5,
+        "cn": 90.6,
+        "jp": 84.4,
+        "us": 98.8,
+        "eu": 91.0
+      },
+      "n_detail": 7,
+      "details": [
+        {
+          "no": "100",
+          "name": "100.재생에너지 변동성 수용 전력망 운영 및 엔지니어링",
+          "leader": "us",
+          "levels": {
+            "cn": 92.1,
+            "eu": 94.6,
+            "jp": 83.2,
+            "kr": 82.8,
+            "us": 98.4
+          },
+          "gaps": {
+            "cn": 11.06,
+            "eu": 9.89,
+            "jp": 25.69,
+            "kr": 29.69,
+            "us": 2.31
+          }
+        },
+        {
+          "no": "101",
+          "name": "101.전력계통 연동 新서비스 지원",
+          "leader": "us",
+          "levels": {
+            "cn": 84.1,
+            "eu": 94.6,
+            "jp": 84.4,
+            "kr": 81.9,
+            "us": 99.6
+          },
+          "gaps": {
+            "cn": 20.62,
+            "eu": 8.56,
+            "jp": 27.81,
+            "kr": 27.38,
+            "us": 0.06
+          }
+        },
+        {
+          "no": "102",
+          "name": "102.지능형 전력거래 및 전력망 보안 인프라",
+          "leader": "us",
+          "levels": {
+            "cn": 85.6,
+            "eu": 92.0,
+            "jp": 80.9,
+            "kr": 83.6,
+            "us": 99.4
+          },
+          "gaps": {
+            "cn": 20.75,
+            "eu": 10.19,
+            "jp": 33.69,
+            "kr": 25.31,
+            "us": 0.94
+          }
+        },
+        {
+          "no": "103",
+          "name": "103.분산에너지 계통접속 한계용량 증대",
+          "leader": "us",
+          "levels": {
+            "cn": 89.3,
+            "eu": 85.0,
+            "jp": 85.5,
+            "kr": 84.1,
+            "us": 99.1
+          },
+          "gaps": {
+            "cn": 12.38,
+            "eu": 18.25,
+            "jp": 21.44,
+            "kr": 22.56,
+            "us": 0.25
+          }
+        },
+        {
+          "no": "104",
+          "name": "104.유연자원 통합운영 및 계통연계",
+          "leader": "us",
+          "levels": {
+            "cn": 90.8,
+            "eu": 92.9,
+            "jp": 82.2,
+            "kr": 81.4,
+            "us": 99.7
+          },
+          "gaps": {
+            "cn": 14.38,
+            "eu": 8.71,
+            "jp": 26.56,
+            "kr": 28.25,
+            "us": 0.19
+          }
+        },
+        {
+          "no": "105",
+          "name": "105.DC 마이크로그리드 및 무선전력전송",
+          "leader": "us",
+          "levels": {
+            "cn": 94.9,
+            "eu": 90.4,
+            "jp": 90.1,
+            "kr": 87.9,
+            "us": 98.3
+          },
+          "gaps": {
+            "cn": 7.56,
+            "eu": 19.62,
+            "jp": 17.88,
+            "kr": 20.44,
+            "us": 1.62
+          }
+        },
+        {
+          "no": "99",
+          "name": "99.DC 기반 전력망 고효율화",
+          "leader": "cn",
+          "levels": {
+            "cn": 97.1,
+            "eu": 87.2,
+            "jp": 84.8,
+            "kr": 82.9,
+            "us": 96.8
+          },
+          "gaps": {
+            "cn": 4.5,
+            "eu": 18.57,
+            "jp": 25.5,
+            "kr": 29.38,
+            "us": 3.37
+          }
+        }
+      ]
+    },
+    {
+      "no": "25",
+      "name": "열 통합 기술",
+      "name_full": "25. 열 통합 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "jp": 1,
+        "us": 2
+      },
+      "levels": {
+        "kr": 77.1,
+        "cn": 85.8,
+        "jp": 90.8,
+        "us": 94.7,
+        "eu": 85.9
+      },
+      "n_detail": 3,
+      "details": [
+        {
+          "no": "106",
+          "name": "106.산업용 고온·초저온 히트펌프",
+          "leader": "jp",
+          "levels": {
+            "cn": 85.3,
+            "eu": 92.5,
+            "jp": 96.6,
+            "kr": 79.8,
+            "us": 93.7
+          },
+          "gaps": {
+            "cn": 29.83,
+            "eu": 15.75,
+            "jp": 9.42,
+            "kr": 43.25,
+            "us": 13.08
+          }
+        },
+        {
+          "no": "107",
+          "name": "107.열에너지 저장 시스템",
+          "leader": "us",
+          "levels": {
+            "cn": 87.0,
+            "eu": 72.5,
+            "jp": 92.5,
+            "kr": 78.9,
+            "us": 95.5
+          },
+          "gaps": {
+            "cn": 25.25,
+            "eu": 38.0,
+            "jp": 17.5,
+            "kr": 47.17,
+            "us": 11.0
+          }
+        },
+        {
+          "no": "108",
+          "name": "108.복합에너지 시스템",
+          "leader": "us",
+          "levels": {
+            "cn": 85.0,
+            "eu": 92.8,
+            "jp": 83.3,
+            "kr": 72.6,
+            "us": 94.9
+          },
+          "gaps": {
+            "cn": 29.83,
+            "eu": 7.25,
+            "jp": 31.67,
+            "kr": 54.5,
+            "us": 13.0
+          }
+        }
+      ]
+    },
+    {
+      "no": "26",
+      "name": "전력-비전력 부문간 결합 기술",
+      "name_full": "26. 전력-비전력 부문간 결합 기술",
+      "type": "감축",
+      "leader": "eu",
+      "lead_counts": {
+        "eu": 1
+      },
+      "levels": {
+        "kr": 83.5,
+        "cn": 90.7,
+        "jp": 87.9,
+        "us": 93.9,
+        "eu": 99.2
+      },
+      "n_detail": 1,
+      "details": [
+        {
+          "no": "109",
+          "name": "109.전력-열-수소 하이브리드 시스템",
+          "leader": "eu",
+          "levels": {
+            "cn": 90.7,
+            "eu": 99.2,
+            "jp": 87.9,
+            "kr": 83.5,
+            "us": 93.9
+          },
+          "gaps": {
+            "cn": 18.83,
+            "eu": 1.33,
+            "jp": 20.58,
+            "kr": 34.33,
+            "us": 10.42
+          }
+        }
+      ]
+    },
+    {
+      "no": "27",
+      "name": "기후변화 감시 및 진단 기술",
+      "name_full": "27. 기후변화 감시 및 진단 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 2
+      },
+      "levels": {
+        "kr": 76.5,
+        "cn": 87.9,
+        "jp": 84.3,
+        "us": 99.8,
+        "eu": 96.3
+      },
+      "n_detail": 2,
+      "details": [
+        {
+          "no": "110",
+          "name": "110.기후변화 모니터링 및 예·경보 시스템",
+          "leader": "us",
+          "levels": {
+            "cn": 86.1,
+            "eu": 98.9,
+            "jp": 83.9,
+            "kr": 75.2,
+            "us": 99.6
+          },
+          "gaps": {
+            "cn": 23.25,
+            "eu": 12.75,
+            "jp": 31.25,
+            "kr": 50.12,
+            "us": 1.94
+          }
+        },
+        {
+          "no": "111",
+          "name": "111.기후변화 원인 진단",
+          "leader": "us",
+          "levels": {
+            "cn": 89.8,
+            "eu": 93.8,
+            "jp": 84.8,
+            "kr": 77.7,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 16.06,
+            "eu": 5.0,
+            "jp": 32.13,
+            "kr": 48.56,
+            "us": 0.75
+          }
+        }
+      ]
+    },
+    {
+      "no": "28",
+      "name": "기후변화 예측 기술",
+      "name_full": "28. 기후변화 예측 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 2,
+        "eu": 1
+      },
+      "levels": {
+        "kr": 73.2,
+        "cn": 78.9,
+        "jp": 84.0,
+        "us": 99.8,
+        "eu": 97.3
+      },
+      "n_detail": 3,
+      "details": [
+        {
+          "no": "112",
+          "name": "112.사회경제 영향을 반영한 기후변화 시나리오 예측",
+          "leader": "us",
+          "levels": {
+            "cn": 78.0,
+            "eu": 93.1,
+            "jp": 83.7,
+            "kr": 73.1,
+            "us": 99.7
+          },
+          "gaps": {
+            "cn": 49.94,
+            "eu": 16.0,
+            "jp": 40.56,
+            "kr": 62.56,
+            "us": 0.37
+          }
+        },
+        {
+          "no": "113",
+          "name": "113.기후환경 요소기반 기후변화 시나리오 예측",
+          "leader": "us",
+          "levels": {
+            "cn": 79.6,
+            "eu": 99.0,
+            "jp": 85.1,
+            "kr": 73.0,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 48.0,
+            "eu": 2.86,
+            "jp": 36.56,
+            "kr": 64.44,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "114",
+          "name": "114.미래 기후환경 요소 예측",
+          "leader": "eu",
+          "levels": {
+            "cn": 79.2,
+            "eu": 99.7,
+            "jp": 83.3,
+            "kr": 73.5,
+            "us": 99.7
+          },
+          "gaps": {
+            "cn": 52.13,
+            "eu": 2.0,
+            "jp": 36.75,
+            "kr": 64.56,
+            "us": 0.81
+          }
+        }
+      ]
+    },
+    {
+      "no": "29",
+      "name": "기후변화 영향 평가 기술",
+      "name_full": "29. 기후변화 영향 평가 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 1
+      },
+      "levels": {
+        "kr": 74.4,
+        "cn": 82.2,
+        "jp": 85.0,
+        "us": 97.9,
+        "eu": 96.5
+      },
+      "n_detail": 1,
+      "details": [
+        {
+          "no": "115",
+          "name": "115.기후변화 영향 평가",
+          "leader": "us",
+          "levels": {
+            "cn": 82.2,
+            "eu": 96.5,
+            "jp": 85.0,
+            "kr": 74.4,
+            "us": 97.9
+          },
+          "gaps": {
+            "cn": 45.64,
+            "eu": 12.0,
+            "jp": 50.0,
+            "kr": 67.57,
+            "us": 3.07
+          }
+        }
+      ]
+    },
+    {
+      "no": "30",
+      "name": "기후변화 취약성 및 위험성 평가 기술",
+      "name_full": "30. 기후변화 취약성 및 위험성 평가 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 1
+      },
+      "levels": {
+        "kr": 77.2,
+        "cn": 85.8,
+        "jp": 83.2,
+        "us": 99.8,
+        "eu": 93.8
+      },
+      "n_detail": 1,
+      "details": [
+        {
+          "no": "116",
+          "name": "116.기후변화 노출·취약성·위험성 평가",
+          "leader": "us",
+          "levels": {
+            "cn": 85.8,
+            "eu": 93.8,
+            "jp": 83.2,
+            "kr": 77.2,
+            "us": 99.8
+          },
+          "gaps": {
+            "cn": 35.0,
+            "eu": 21.25,
+            "jp": 46.39,
+            "kr": 65.11,
+            "us": 0.67
+          }
+        }
+      ]
+    },
+    {
+      "no": "31",
+      "name": "건강부문 기술",
+      "name_full": "31. 건강부문 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 9
+      },
+      "levels": {
+        "kr": 78.4,
+        "cn": 87.1,
+        "jp": 82.9,
+        "us": 99.4,
+        "eu": 91.6
+      },
+      "n_detail": 9,
+      "details": [
+        {
+          "no": "117",
+          "name": "117.기후보건 및 재난의료 시스템 구축",
+          "leader": "us",
+          "levels": {
+            "cn": 89.4,
+            "eu": 86.7,
+            "jp": 77.1,
+            "kr": 74.9,
+            "us": 99.5
+          },
+          "gaps": {
+            "cn": 22.2,
+            "eu": 27.8,
+            "jp": 49.5,
+            "kr": 49.8,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "118",
+          "name": "118.감염병 예방 및 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 87.3,
+            "eu": 86.4,
+            "jp": 75.0,
+            "kr": 77.7,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 15.0,
+            "eu": 22.4,
+            "jp": 39.9,
+            "kr": 32.9,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "119",
+          "name": "119.병원체·매개체 감시",
+          "leader": "us",
+          "levels": {
+            "cn": 87.2,
+            "eu": 92.4,
+            "jp": 77.8,
+            "kr": 78.7,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 24.0,
+            "eu": 17.6,
+            "jp": 34.5,
+            "kr": 33.9,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "120",
+          "name": "120.폭염·한파로 인한 환경성 질환 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 87.7,
+            "eu": 92.5,
+            "jp": 82.2,
+            "kr": 76.7,
+            "us": 99.2
+          },
+          "gaps": {
+            "cn": 18.1,
+            "eu": 15.4,
+            "jp": 27.0,
+            "kr": 35.5,
+            "us": 1.2
+          }
+        },
+        {
+          "no": "121",
+          "name": "121.폭염·한파 저감",
+          "leader": "us",
+          "levels": {
+            "cn": 88.6,
+            "eu": 91.8,
+            "jp": 83.5,
+            "kr": 75.7,
+            "us": 99.4
+          },
+          "gaps": {
+            "cn": 18.3,
+            "eu": 13.9,
+            "jp": 23.5,
+            "kr": 34.1,
+            "us": 1.0
+          }
+        },
+        {
+          "no": "122",
+          "name": "122.대기오염으로 인한 환경성 질환 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 90.3,
+            "eu": 92.6,
+            "jp": 84.8,
+            "kr": 78.0,
+            "us": 97.5
+          },
+          "gaps": {
+            "cn": 16.2,
+            "eu": 9.8,
+            "jp": 23.3,
+            "kr": 33.0,
+            "us": 2.6
+          }
+        },
+        {
+          "no": "123",
+          "name": "123.대기오염 저감",
+          "leader": "us",
+          "levels": {
+            "cn": 91.6,
+            "eu": 94.4,
+            "jp": 85.8,
+            "kr": 81.2,
+            "us": 99.4
+          },
+          "gaps": {
+            "cn": 15.0,
+            "eu": 10.5,
+            "jp": 20.4,
+            "kr": 31.3,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "124",
+          "name": "124.식품 위해요소 진단 및 분석",
+          "leader": "us",
+          "levels": {
+            "cn": 80.6,
+            "eu": 94.7,
+            "jp": 88.8,
+            "kr": 80.4,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 33.8,
+            "eu": 7.2,
+            "jp": 13.6,
+            "kr": 27.1,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "125",
+          "name": "125.식품 안전성 확보",
+          "leader": "us",
+          "levels": {
+            "cn": 81.0,
+            "eu": 93.3,
+            "jp": 90.8,
+            "kr": 82.2,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 37.1,
+            "eu": 8.4,
+            "jp": 10.2,
+            "kr": 26.6,
+            "us": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "no": "32",
+      "name": "물 부문 기술",
+      "name_full": "32. 물 부문 기술",
+      "type": "감축",
+      "leader": "us",
+      "lead_counts": {
+        "us": 7
+      },
+      "levels": {
+        "kr": 80.8,
+        "cn": 75.6,
+        "jp": 89.8,
+        "us": 98.5,
+        "eu": 92.8
+      },
+      "n_detail": 7,
+      "details": [
+        {
+          "no": "126",
+          "name": "126.수리시설 운영 및 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 75.8,
+            "eu": 85.8,
+            "jp": 89.3,
+            "kr": 82.0,
+            "us": 97.8
+          },
+          "gaps": {
+            "cn": 63.95,
+            "eu": 42.86,
+            "jp": 26.25,
+            "kr": 46.75,
+            "us": 2.1
+          }
+        },
+        {
+          "no": "127",
+          "name": "127.대체 수자원 개발 및 물 재이용",
+          "leader": "us",
+          "levels": {
+            "cn": 75.6,
+            "eu": 88.6,
+            "jp": 86.3,
+            "kr": 78.5,
+            "us": 99.0
+          },
+          "gaps": {
+            "cn": 82.58,
+            "eu": 35.89,
+            "jp": 42.0,
+            "kr": 66.89,
+            "us": 2.79
+          }
+        },
+        {
+          "no": "128",
+          "name": "128.가뭄·홍수·도시침수 예방 및 대응",
+          "leader": "us",
+          "levels": {
+            "cn": 74.7,
+            "eu": 96.0,
+            "jp": 92.4,
+            "kr": 79.3,
+            "us": 99.0
+          },
+          "gaps": {
+            "cn": 66.75,
+            "eu": 24.0,
+            "jp": 24.7,
+            "kr": 56.4,
+            "us": 4.2
+          }
+        },
+        {
+          "no": "129",
+          "name": "129.수원 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 76.7,
+            "eu": 92.5,
+            "jp": 88.9,
+            "kr": 83.2,
+            "us": 99.3
+          },
+          "gaps": {
+            "cn": 70.67,
+            "eu": 28.61,
+            "jp": 35.0,
+            "kr": 50.67,
+            "us": 0.89
+          }
+        },
+        {
+          "no": "130",
+          "name": "130.수생태계 보전 및 복원",
+          "leader": "us",
+          "levels": {
+            "cn": 73.9,
+            "eu": 95.9,
+            "jp": 87.4,
+            "kr": 78.1,
+            "us": 97.8
+          },
+          "gaps": {
+            "cn": 81.5,
+            "eu": 17.61,
+            "jp": 29.28,
+            "kr": 60.33,
+            "us": 10.89
+          }
+        },
+        {
+          "no": "131",
+          "name": "131.수질 모니터링 및 처리",
+          "leader": "us",
+          "levels": {
+            "cn": 77.5,
+            "eu": 95.9,
+            "jp": 92.0,
+            "kr": 84.8,
+            "us": 97.8
+          },
+          "gaps": {
+            "cn": 68.67,
+            "eu": 16.67,
+            "jp": 18.11,
+            "kr": 47.67,
+            "us": 4.28
+          }
+        },
+        {
+          "no": "132",
+          "name": "132.비점오염 저감",
+          "leader": "us",
+          "levels": {
+            "cn": 74.8,
+            "eu": 95.2,
+            "jp": 92.4,
+            "kr": 80.0,
+            "us": 98.7
+          },
+          "gaps": {
+            "cn": 84.67,
+            "eu": 20.61,
+            "jp": 22.0,
+            "kr": 59.0,
+            "us": 5.0
+          }
+        }
+      ]
+    },
+    {
+      "no": "33",
+      "name": "국토연안 부문 기술",
+      "name_full": "33. 국토연안 부문 기술",
+      "type": "적응",
+      "leader": "us",
+      "lead_counts": {
+        "us": 4
+      },
+      "levels": {
+        "kr": 75.0,
+        "cn": 77.9,
+        "jp": 79.7,
+        "us": 92.5,
+        "eu": 86.5
+      },
+      "n_detail": 4,
+      "details": [
+        {
+          "no": "133",
+          "name": "133.기후적응형 도시계획·설계",
+          "leader": "us",
+          "levels": {
+            "cn": 78.4,
+            "eu": 85.2,
+            "jp": 82.7,
+            "kr": 76.3,
+            "us": 91.3
+          },
+          "gaps": {
+            "cn": 55.47,
+            "eu": 23.67,
+            "jp": 41.8,
+            "kr": 57.2,
+            "us": 18.27
+          }
+        },
+        {
+          "no": "134",
+          "name": "134.도시지역 기후위기 적응 및 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 79.1,
+            "eu": 86.9,
+            "jp": 79.2,
+            "kr": 77.4,
+            "us": 91.4
+          },
+          "gaps": {
+            "cn": 56.93,
+            "eu": 23.5,
+            "jp": 50.93,
+            "kr": 57.71,
+            "us": 13.14
+          }
+        },
+        {
+          "no": "135",
+          "name": "135.연안지역 기후위기 적응 및 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 74.4,
+            "eu": 88.9,
+            "jp": 78.2,
+            "kr": 69.9,
+            "us": 92.1
+          },
+          "gaps": {
+            "cn": 77.57,
+            "eu": 22.43,
+            "jp": 49.93,
+            "kr": 71.79,
+            "us": 17.14
+          }
+        },
+        {
+          "no": "136",
+          "name": "136.연안환경 보전 및 복원",
+          "leader": "us",
+          "levels": {
+            "cn": 79.6,
+            "eu": 84.8,
+            "jp": 78.6,
+            "kr": 76.6,
+            "us": 95.2
+          },
+          "gaps": {
+            "cn": 60.21,
+            "eu": 26.07,
+            "jp": 46.29,
+            "kr": 56.57,
+            "us": 7.71
+          }
+        }
+      ]
+    },
+    {
+      "no": "34",
+      "name": "농축수산 부문 기술",
+      "name_full": "34. 농축수산 부문 기술",
+      "type": "적응",
+      "leader": "us",
+      "lead_counts": {
+        "us": 7
+      },
+      "levels": {
+        "kr": 77.0,
+        "cn": 77.6,
+        "jp": 89.7,
+        "us": 99.2,
+        "eu": 94.0
+      },
+      "n_detail": 7,
+      "details": [
+        {
+          "no": "137",
+          "name": "137.농수산물 유전자원 수집 및 보존",
+          "leader": "us",
+          "levels": {
+            "cn": 83.7,
+            "eu": 88.9,
+            "jp": 83.7,
+            "kr": 73.0,
+            "us": 98.7
+          },
+          "gaps": {
+            "cn": 46.47,
+            "eu": 30.8,
+            "jp": 40.4,
+            "kr": 75.27,
+            "us": 0.2
+          }
+        },
+        {
+          "no": "138",
+          "name": "138.기후적응형 농수산물 품종 개발",
+          "leader": "us",
+          "levels": {
+            "cn": 80.8,
+            "eu": 93.0,
+            "jp": 90.7,
+            "kr": 71.9,
+            "us": 99.7
+          },
+          "gaps": {
+            "cn": 52.07,
+            "eu": 12.0,
+            "jp": 30.27,
+            "kr": 70.6,
+            "us": 0.47
+          }
+        },
+        {
+          "no": "139",
+          "name": "139.기후적응형 농수산물 생산(재배·사육·양식)",
+          "leader": "us",
+          "levels": {
+            "cn": 79.1,
+            "eu": 95.8,
+            "jp": 88.8,
+            "kr": 74.1,
+            "us": 98.9
+          },
+          "gaps": {
+            "cn": 52.86,
+            "eu": 10.8,
+            "jp": 28.0,
+            "kr": 58.64,
+            "us": 3.43
+          }
+        },
+        {
+          "no": "140",
+          "name": "140.기후적응형 농수산물 공급(저장·유통)",
+          "leader": "us",
+          "levels": {
+            "cn": 76.5,
+            "eu": 97.5,
+            "jp": 91.1,
+            "kr": 81.8,
+            "us": 98.4
+          },
+          "gaps": {
+            "cn": 61.5,
+            "eu": 3.0,
+            "jp": 26.21,
+            "kr": 44.29,
+            "us": 7.29
+          }
+        },
+        {
+          "no": "141",
+          "name": "141.작물·가축·수산생물 질병 예방 및 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 73.9,
+            "eu": 92.3,
+            "jp": 90.6,
+            "kr": 79.6,
+            "us": 99.6
+          },
+          "gaps": {
+            "cn": 72.86,
+            "eu": 15.79,
+            "jp": 22.64,
+            "kr": 49.43,
+            "us": 0.36
+          }
+        },
+        {
+          "no": "142",
+          "name": "142.농수산 시설·장비 안전관리 및 내재해 설계",
+          "leader": "us",
+          "levels": {
+            "cn": 72.9,
+            "eu": 92.1,
+            "jp": 93.6,
+            "kr": 79.1,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 69.14,
+            "eu": 17.57,
+            "jp": 14.5,
+            "kr": 46.79,
+            "us": 0.21
+          }
+        },
+        {
+          "no": "143",
+          "name": "143.스마트 농수산 시설·장비 및 시스템 개발",
+          "leader": "us",
+          "levels": {
+            "cn": 76.2,
+            "eu": 98.3,
+            "jp": 89.5,
+            "kr": 79.4,
+            "us": 98.9
+          },
+          "gaps": {
+            "cn": 55.64,
+            "eu": 2.5,
+            "jp": 28.64,
+            "kr": 45.71,
+            "us": 2.93
+          }
+        }
+      ]
+    },
+    {
+      "no": "35",
+      "name": "산림?생태계 부문 기술",
+      "name_full": "35. 산림?생태계 부문 기술",
+      "type": "적응",
+      "leader": "us",
+      "lead_counts": {
+        "us": 5,
+        "eu": 2
+      },
+      "levels": {
+        "kr": 74.2,
+        "cn": 79.2,
+        "jp": 87.7,
+        "us": 98.1,
+        "eu": 93.4
+      },
+      "n_detail": 7,
+      "details": [
+        {
+          "no": "144",
+          "name": "144.산불 예방 및 대응",
+          "leader": "us",
+          "levels": {
+            "cn": 65.9,
+            "eu": 82.5,
+            "jp": 71.7,
+            "kr": 68.4,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 53.18,
+            "eu": 54.33,
+            "jp": 52.36,
+            "kr": 54.55,
+            "us": 8.82
+          }
+        },
+        {
+          "no": "145",
+          "name": "145.산사태 예방 및 대응",
+          "leader": "us",
+          "levels": {
+            "cn": 80.4,
+            "eu": 95.0,
+            "jp": 92.0,
+            "kr": 79.4,
+            "us": 97.9
+          },
+          "gaps": {
+            "cn": 43.5,
+            "eu": 8.0,
+            "jp": 22.75,
+            "kr": 54.33,
+            "us": 7.0
+          }
+        },
+        {
+          "no": "146",
+          "name": "146.산림 병해충 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 81.4,
+            "eu": 92.3,
+            "jp": 92.7,
+            "kr": 76.8,
+            "us": 97.3
+          },
+          "gaps": {
+            "cn": 42.91,
+            "eu": 19.64,
+            "jp": 14.73,
+            "kr": 59.45,
+            "us": 4.36
+          }
+        },
+        {
+          "no": "147",
+          "name": "147.생태계 보전 및 복원",
+          "leader": "eu",
+          "levels": {
+            "cn": 80.5,
+            "eu": 96.9,
+            "jp": 90.0,
+            "kr": 75.6,
+            "us": 94.5
+          },
+          "gaps": {
+            "cn": 49.09,
+            "eu": 13.09,
+            "jp": 24.55,
+            "kr": 64.91,
+            "us": 13.0
+          }
+        },
+        {
+          "no": "148",
+          "name": "148.생태계 교란종 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 81.8,
+            "eu": 90.5,
+            "jp": 85.5,
+            "kr": 70.0,
+            "us": 98.2
+          },
+          "gaps": {
+            "cn": 44.73,
+            "eu": 33.27,
+            "jp": 30.0,
+            "kr": 72.0,
+            "us": 15.27
+          }
+        },
+        {
+          "no": "149",
+          "name": "149.기후적응형 산림자원 육성 및 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 81.8,
+            "eu": 96.8,
+            "jp": 88.9,
+            "kr": 74.1,
+            "us": 99.5
+          },
+          "gaps": {
+            "cn": 44.73,
+            "eu": 13.09,
+            "jp": 25.64,
+            "kr": 74.18,
+            "us": 1.09
+          }
+        },
+        {
+          "no": "150",
+          "name": "150.산림자원 활용",
+          "leader": "eu",
+          "levels": {
+            "cn": 82.9,
+            "eu": 100.0,
+            "jp": 93.3,
+            "kr": 75.4,
+            "us": 99.1
+          },
+          "gaps": {
+            "cn": 55.0,
+            "eu": 0.0,
+            "jp": 24.5,
+            "kr": 65.0,
+            "us": 5.67
+          }
+        }
+      ]
+    },
+    {
+      "no": "36",
+      "name": "산업 에너지 부문 기술",
+      "name_full": "36. 산업 에너지 부문 기술",
+      "type": "적응",
+      "leader": "us",
+      "lead_counts": {
+        "us": 2
+      },
+      "levels": {
+        "kr": 78.2,
+        "cn": 88.8,
+        "jp": 85.9,
+        "us": 99.8,
+        "eu": 94.4
+      },
+      "n_detail": 2,
+      "details": [
+        {
+          "no": "151",
+          "name": "151.산업별 전환 리스크 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 90.8,
+            "eu": 94.2,
+            "jp": 84.9,
+            "kr": 79.2,
+            "us": 99.5
+          },
+          "gaps": {
+            "cn": 12.6,
+            "eu": 14.2,
+            "jp": 27.0,
+            "kr": 39.4,
+            "us": 0.6
+          }
+        },
+        {
+          "no": "152",
+          "name": "152.산업별 물리적 리스크 관리",
+          "leader": "us",
+          "levels": {
+            "cn": 86.7,
+            "eu": 94.6,
+            "jp": 86.9,
+            "kr": 77.3,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 19.4,
+            "eu": 9.5,
+            "jp": 23.9,
+            "kr": 39.6,
+            "us": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "no": "37",
+      "name": "적응조치의 효과평가 기술",
+      "name_full": "37. 적응조치의 효과평가 기술",
+      "type": "적응",
+      "leader": "us",
+      "lead_counts": {
+        "eu": 1,
+        "us": 1
+      },
+      "levels": {
+        "kr": 70.8,
+        "cn": 83.5,
+        "jp": 76.8,
+        "us": 93.9,
+        "eu": 93.7
+      },
+      "n_detail": 2,
+      "details": [
+        {
+          "no": "153",
+          "name": "153.적응조치 효과 예측 및 평가",
+          "leader": "eu",
+          "levels": {
+            "cn": 81.9,
+            "eu": 93.5,
+            "jp": 76.6,
+            "kr": 69.1,
+            "us": 92.8
+          },
+          "gaps": {
+            "cn": 29.36,
+            "eu": 16.64,
+            "jp": 47.64,
+            "kr": 61.82,
+            "us": 12.0
+          }
+        },
+        {
+          "no": "154",
+          "name": "154.적응정보 생산 및 활용",
+          "leader": "us",
+          "levels": {
+            "cn": 85.1,
+            "eu": 93.9,
+            "jp": 77.1,
+            "kr": 72.4,
+            "us": 95.0
+          },
+          "gaps": {
+            "cn": 38.82,
+            "eu": 16.0,
+            "jp": 54.55,
+            "kr": 64.91,
+            "us": 7.09
+          }
+        }
+      ]
+    },
+    {
+      "no": "38",
+      "name": "기후변화 적응기반 기술",
+      "name_full": "38. 기후변화 적응기반 기술",
+      "type": "적응",
+      "leader": "us",
+      "lead_counts": {
+        "us": 3
+      },
+      "levels": {
+        "kr": 71.5,
+        "cn": 82.8,
+        "jp": 78.5,
+        "us": 99.3,
+        "eu": 92.6
+      },
+      "n_detail": 3,
+      "details": [
+        {
+          "no": "155",
+          "name": "155.적응 의사결정 지원",
+          "leader": "us",
+          "levels": {
+            "cn": 85.9,
+            "eu": 91.8,
+            "jp": 78.2,
+            "kr": 71.5,
+            "us": 100.0
+          },
+          "gaps": {
+            "cn": 37.75,
+            "eu": 14.08,
+            "jp": 52.0,
+            "kr": 69.67,
+            "us": 0.0
+          }
+        },
+        {
+          "no": "156",
+          "name": "156.적응-감축 연계",
+          "leader": "us",
+          "levels": {
+            "cn": 82.3,
+            "eu": 92.3,
+            "jp": 75.7,
+            "kr": 68.4,
+            "us": 98.8
+          },
+          "gaps": {
+            "cn": 44.17,
+            "eu": 16.67,
+            "jp": 57.42,
+            "kr": 72.83,
+            "us": 2.0
+          }
+        },
+        {
+          "no": "157",
+          "name": "157.지식자원 디지털 아카이브 개발",
+          "leader": "us",
+          "levels": {
+            "cn": 80.1,
+            "eu": 93.8,
+            "jp": 81.6,
+            "kr": 74.6,
+            "us": 99.2
+          },
+          "gaps": {
+            "cn": 51.42,
+            "eu": 11.17,
+            "jp": 44.33,
+            "kr": 65.08,
+            "us": 2.0
+          }
+        }
+      ]
+    }
+  ],
+  "country_summary": [
+    {
+      "code": "us",
+      "name": "미국",
+      "flag": "🇺🇸",
+      "color": "#96CEB4",
+      "leading_count": 107,
+      "leading_categories": 28,
+      "avg_level": 96.1,
+      "avg_gap": 7.8,
+      "strong": [
+        {
+          "name": "이산화탄소(CO2)포집, 저장, 활용 기술",
+          "level": 99.8
+        },
+        {
+          "name": "기후변화 감시 및 진단 기술",
+          "level": 99.8
+        },
+        {
+          "name": "기후변화 예측 기술",
+          "level": 99.8
+        }
+      ],
+      "weak": [
+        {
+          "name": "풍력 기술",
+          "level": 88.0
+        },
+        {
+          "name": "해양에너지 기술",
+          "level": 88.2
+        },
+        {
+          "name": "태양광 기술",
+          "level": 89.5
+        }
+      ]
+    },
+    {
+      "code": "eu",
+      "name": "EU",
+      "flag": "🇪🇺",
+      "color": "#FECA57",
+      "leading_count": 21,
+      "leading_categories": 3,
+      "avg_level": 91.3,
+      "avg_gap": 17.9,
+      "strong": [
+        {
+          "name": "전력-비전력 부문간 결합 기술",
+          "level": 99.2
+        },
+        {
+          "name": "기후변화 예측 기술",
+          "level": 97.3
+        },
+        {
+          "name": "풍력 기술",
+          "level": 97.1
+        }
+      ],
+      "weak": [
+        {
+          "name": "발전효율 기술",
+          "level": 77.2
+        },
+        {
+          "name": "수소?암모니아 발전기술",
+          "level": 81.9
+        },
+        {
+          "name": "탄소흡수원 기술",
+          "level": 82.9
+        }
+      ]
+    },
+    {
+      "code": "cn",
+      "name": "중국",
+      "flag": "🇨🇳",
+      "color": "#4ECDC4",
+      "leading_count": 15,
+      "leading_categories": 5,
+      "avg_level": 85.3,
+      "avg_gap": 31.9,
+      "strong": [
+        {
+          "name": "태양열 기술",
+          "level": 98.8
+        },
+        {
+          "name": "수력 기술",
+          "level": 97.2
+        },
+        {
+          "name": "태양광 기술",
+          "level": 96.9
+        }
+      ],
+      "weak": [
+        {
+          "name": "물 부문 기술",
+          "level": 75.6
+        },
+        {
+          "name": "탄소흡수원 기술",
+          "level": 75.7
+        },
+        {
+          "name": "농축수산 부문 기술",
+          "level": 77.6
+        }
+      ]
+    },
+    {
+      "code": "jp",
+      "name": "일본",
+      "flag": "🇯🇵",
+      "color": "#45B7D1",
+      "leading_count": 14,
+      "leading_categories": 2,
+      "avg_level": 87.1,
+      "avg_gap": 27.8,
+      "strong": [
+        {
+          "name": "수소?암모니아 발전기술",
+          "level": 96.4
+        },
+        {
+          "name": "수송효율 기술",
+          "level": 96.1
+        },
+        {
+          "name": "기타 온실가스 처리 및 대체 기술",
+          "level": 95.3
+        }
+      ],
+      "weak": [
+        {
+          "name": "풍력 기술",
+          "level": 73.2
+        },
+        {
+          "name": "탄소흡수원 기술",
+          "level": 75.9
+        },
+        {
+          "name": "적응조치의 효과평가 기술",
+          "level": 76.8
+        }
+      ]
+    },
+    {
+      "code": "kr",
+      "name": "한국",
+      "flag": "🇰🇷",
+      "color": "#FF6B6B",
+      "leading_count": 0,
+      "leading_categories": 0,
+      "avg_level": 80.0,
+      "avg_gap": 43.6,
+      "strong": [
+        {
+          "name": "수송효율 기술",
+          "level": 93.0
+        },
+        {
+          "name": "태양광 기술",
+          "level": 91.9
+        },
+        {
+          "name": "발전효율 기술",
+          "level": 90.9
+        }
+      ],
+      "weak": [
+        {
+          "name": "지열 기술",
+          "level": 66.5
+        },
+        {
+          "name": "탄소흡수원 기술",
+          "level": 68.6
+        },
+        {
+          "name": "적응조치의 효과평가 기술",
+          "level": 70.8
+        }
+      ]
+    }
+  ],
+  "trend": {
+    "years": [
+      2020,
+      2025
+    ],
+    "countries": {
+      "kr": {
+        "2020": {
+          "level": 81.3,
+          "gap_yr": 3.6
+        },
+        "2025": {
+          "level": 80.0,
+          "gap_yr": 3.63
+        },
+        "d_level": -1.3,
+        "d_gap": 0.03
+      },
+      "cn": {
+        "2020": {
+          "level": 76.0,
+          "gap_yr": 4.54
+        },
+        "2025": {
+          "level": 85.3,
+          "gap_yr": 2.66
+        },
+        "d_level": 9.3,
+        "d_gap": -1.88
+      },
+      "jp": {
+        "2020": {
+          "level": 89.0,
+          "gap_yr": 1.97
+        },
+        "2025": {
+          "level": 87.1,
+          "gap_yr": 2.32
+        },
+        "d_level": -1.9,
+        "d_gap": 0.35
+      },
+      "us": {
+        "2020": {
+          "level": 98.6,
+          "gap_yr": 0.2
+        },
+        "2025": {
+          "level": 96.1,
+          "gap_yr": 0.65
+        },
+        "d_level": -2.5,
+        "d_gap": 0.45
+      },
+      "eu": {
+        "2020": {
+          "level": 95.7,
+          "gap_yr": 0.74
+        },
+        "2025": {
+          "level": 91.3,
+          "gap_yr": 1.49
+        },
+        "d_level": -4.4,
+        "d_gap": 0.75
+      }
+    },
+    "kr_movers": [
+      {
+        "name": "해양에너지 기술",
+        "y2020": 86.6,
+        "y2025": 77.9,
+        "delta": -8.7
+      },
+      {
+        "name": "원자력 기술",
+        "y2020": 83.8,
+        "y2025": 76.0,
+        "delta": -7.7
+      },
+      {
+        "name": "지열 기술",
+        "y2020": 74.0,
+        "y2025": 66.5,
+        "delta": -7.5
+      },
+      {
+        "name": "풍력 기술",
+        "y2020": 80.0,
+        "y2025": 72.7,
+        "delta": -7.3
+      },
+      {
+        "name": "태양열 기술",
+        "y2020": 79.2,
+        "y2025": 72.5,
+        "delta": -6.7
+      },
+      {
+        "name": "수력 기술",
+        "y2020": 77.5,
+        "y2025": 71.4,
+        "delta": -6.1
+      },
+      {
+        "name": "국토연안 부문 기술",
+        "y2020": 78.1,
+        "y2025": 75.0,
+        "delta": -3.1
+      },
+      {
+        "name": "수소?암모니아 발전기술",
+        "y2020": 83.6,
+        "y2025": 84.1,
+        "delta": 0.5
+      },
+      {
+        "name": "석탄액화?가스화 기술",
+        "y2020": 82.0,
+        "y2025": 83.3,
+        "delta": 1.3
+      },
+      {
+        "name": "이산화탄소(CO2)포집, 저장, 활용 기술",
+        "y2020": 77.7,
+        "y2025": 80.0,
+        "delta": 2.4
+      },
+      {
+        "name": "태양광 기술",
+        "y2020": 87.8,
+        "y2025": 91.9,
+        "delta": 4.1
+      },
+      {
+        "name": "폐자원 기술",
+        "y2020": 80.2,
+        "y2025": 85.3,
+        "delta": 5.1
+      },
+      {
+        "name": "핵융합에너지 기술",
+        "y2020": 78.8,
+        "y2025": 86.3,
+        "delta": 7.5
+      }
+    ]
+  }
+}

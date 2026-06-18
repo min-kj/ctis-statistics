@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기후기술 수준의 변화 2020→2025 — CTis</title>
+<style>
+  :root{
+    --ink:#16263f; --ink2:#64748b; --line:#e7ebf1; --panel:#f7f9fc;
+    --green1:#2d5016; --green2:#4a7c23;
+    --c-kr:#FF6B6B; --c-cn:#4ECDC4; --c-jp:#45B7D1; --c-us:#96CEB4; --c-eu:#FECA57;
+    --up:#2f9e54; --down:#e05656;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+       color:var(--ink);background:#fff;line-height:1.5}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px 70px}
+  .top{padding:30px 0 4px}
+  h1{margin:0 0 8px;font-size:24px;font-weight:800}
+  .lead{font-size:14.5px;color:var(--ink2);margin:0;max-width:860px}
+  .tag{display:inline-block;background:#eef3e8;color:var(--green2);font-size:12px;font-weight:700;
+       padding:3px 10px;border-radius:20px;margin-top:10px}
+
+  .sec-h{font-size:13px;font-weight:800;color:var(--ink2);letter-spacing:.3px;text-transform:uppercase;
+         margin:28px 0 14px;display:flex;align-items:center;gap:10px}
+  .sec-h::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  /* slope chart panel */
+  .panel{border:1px solid var(--line);border-radius:14px;padding:20px 18px 8px;background:#fff}
+  .toggle{display:flex;gap:8px;margin-bottom:6px}
+  .tg{border:1.5px solid var(--line);background:#fff;border-radius:8px;padding:6px 14px;font-weight:700;
+      font-size:13px;cursor:pointer;color:var(--ink2)}
+  .tg.active{background:var(--green2);color:#fff;border-color:transparent}
+  svg{width:100%;height:auto;display:block}
+  .annot{font-size:12px;color:var(--ink2);text-align:center;margin:2px 0 6px}
+  .annot b{color:var(--c-cn)}
+
+  /* country change cards */
+  .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  @media(max-width:880px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.cards{grid-template-columns:1fr}}
+  .cc{border:1px solid var(--line);border-radius:12px;padding:15px;border-top:4px solid #ccc}
+  .cc .h{display:flex;align-items:center;gap:7px;font-weight:800;font-size:14px;margin-bottom:8px}
+  .cc .h .flag{font-size:20px}
+  .cc .lv{font-size:13px;color:var(--ink2)}
+  .cc .lv b{color:var(--ink);font-size:22px;font-weight:800}
+  .cc .dl{font-size:13px;font-weight:800;margin-top:4px}
+  .cc .gp{font-size:11.5px;color:var(--ink2);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+  .up{color:var(--up)} .down{color:var(--down)}
+
+  /* diverging bars */
+  .dv{display:flex;flex-direction:column;gap:7px}
+  .dv .row{display:grid;grid-template-columns:1fr 150px 1fr;align-items:center;gap:8px;font-size:12.5px}
+  .dv .nm{text-align:right;color:var(--ink);font-weight:600}
+  .dv .barwrap{position:relative;height:20px}
+  .dv .axis{position:absolute;left:50%;top:-3px;width:1px;height:26px;background:#cbd5e1}
+  .dv .bar{position:absolute;top:50%;transform:translateY(-50%);height:14px;border-radius:4px;display:flex;align-items:center}
+  .dv .bar.pos{left:50%;background:var(--up);justify-content:flex-end;padding-right:5px;color:#fff;font-weight:800;font-size:10px}
+  .dv .bar.neg{right:50%;background:var(--down);justify-content:flex-start;padding-left:5px;color:#fff;font-weight:800;font-size:10px}
+  .dv .vv{font-size:11.5px;color:var(--ink2)}
+  .dv .vv.r{text-align:left}
+  .dv .vv.l{text-align:right}
+  .legend2{display:flex;gap:16px;font-size:12px;color:var(--ink2);margin-bottom:10px}
+  .legend2 .sw{width:11px;height:11px;border-radius:3px;display:inline-block;vertical-align:-1px;margin-right:5px}
+
+  .note{font-size:12px;color:var(--ink2);margin-top:30px;padding-top:16px;border-top:1px solid var(--line)}
+  a.cross{color:var(--green2);font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>기후기술 수준의 변화, 2020 → 2025</h1>
+    <p class="lead">한·중·일·미·EU의 기후기술 평균 수준이 5년간 어떻게 달라졌는지 보여줍니다.
+      <b>가장 큰 변화는 중국</b>: 평균 수준이 76.0 → 85.3으로 뛰어 한국을 추월했습니다.</p>
+    <div class="tag">⚠ 수준조사는 2020·2025 두 시점만 존재 — 연속 연간 데이터가 아닌 두 조사회차 비교입니다</div>
+  </div>
+
+  <div class="sec-h">국가별 추이</div>
+  <div class="panel">
+    <div class="toggle">
+      <button class="tg active" data-m="level">평균 기술수준 (%)</button>
+      <button class="tg" data-m="gap">최고국 대비 격차 (년)</button>
+    </div>
+    <div id="chart"></div>
+    <p class="annot" id="annot"></p>
+  </div>
+
+  <div class="sec-h">국가별 변화 요약</div>
+  <div class="cards" id="cards"></div>
+
+  <div class="sec-h">한국 분야별 변화 <span style="text-transform:none;font-weight:600;color:#9aa7bb">· 1:1 매핑 분야 기준</span></div>
+  <div class="legend2">
+    <span><span class="sw" style="background:var(--up)"></span>수준 상승 (추격)</span>
+    <span><span class="sw" style="background:var(--down)"></span>수준 하락 (후퇴)</span>
+  </div>
+  <div class="dv" id="movers"></div>
+
+  <p class="note" id="note"></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+(async function(){
+  let D=window.CTIS_DATA;
+  if(!D){ try{D=await (await fetch('data.json')).json();}catch(e){
+    document.body.innerHTML='<p style="padding:40px">data.js / data.json 을 찾을 수 없습니다. extract_data.py 를 먼저 실행하세요.</p>';return;} }
+  init(D);
+})();
+
+function init(D){
+  const C={}; D.meta.countries.forEach(c=>C[c.code]=c);
+  const flagImg=(code,w)=>{const c=C[code]||{};const nm=c.name||code;return `<img src="${c.img||('flags/'+code+'.png')}" alt="${nm}" style="width:${w}px;height:auto;border-radius:2px;vertical-align:-2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)">`;};
+  const order=['us','eu','jp','cn','kr'];
+  const T=D.trend; let mode='level';
+
+  document.getElementById('note').innerHTML =
+    `출처: ${D.meta.source}. 격차는 비교 위해 년 단위로 정규화(2020=년, 2025=개월→년). `+
+    `분야별 변화는 44대→38대 1:1 확정매핑 ${T.kr_movers.length}개 분야. `+
+    `· 분야별 선도: <a class="cross" href="country-leadership-landscape-v2.html">선도 지형</a> · `+
+    `국가 프로필: <a class="cross" href="country-profile-cards.html">지표 카드</a>`;
+
+  // ── 슬로프 차트 (SVG) ──────────────────────────────
+  const W=760,H=380, x0=140,x1=600, top=36,bot=320;
+  function draw(){
+    const get=c=> mode==='level'? T.countries[c]['2020'].level : T.countries[c]['2020'].gap_yr;
+    const get2=c=> mode==='level'? T.countries[c]['2025'].level : T.countries[c]['2025'].gap_yr;
+    const vals=order.flatMap(c=>[get(c),get2(c)]);
+    let lo=Math.min(...vals), hi=Math.max(...vals); const pad=(hi-lo)*0.18||1; lo-=pad; hi+=pad;
+    // y: '좋을수록 위'. level은 클수록 위, gap은 작을수록 위
+    const y=v=> mode==='level'
+        ? bot-(v-lo)/(hi-lo)*(bot-top)
+        : top+(v-lo)/(hi-lo)*(bot-top);
+    const fmt=v=> mode==='level'? v.toFixed(1): v.toFixed(2);
+    let s=`<svg viewBox="0 0 ${W} ${H}" font-family="inherit">`;
+    // 축 가이드
+    s+=`<line x1="${x0}" y1="${top-10}" x2="${x0}" y2="${bot+10}" stroke="#e2e8f0"/>`;
+    s+=`<line x1="${x1}" y1="${top-10}" x2="${x1}" y2="${bot+10}" stroke="#e2e8f0"/>`;
+    s+=`<text x="${x0}" y="${bot+34}" text-anchor="middle" font-size="14" font-weight="800" fill="#16263f">2020</text>`;
+    s+=`<text x="${x1}" y="${bot+34}" text-anchor="middle" font-size="14" font-weight="800" fill="#16263f">2025</text>`;
+    s+=`<text x="${x0}" y="${bot+50}" text-anchor="middle" font-size="11" fill="#94a3b8">${mode==='level'?'1차 조사':'1차 조사'}</text>`;
+    s+=`<text x="${x1}" y="${bot+50}" text-anchor="middle" font-size="11" fill="#94a3b8">2차 조사</text>`;
+    // 각 국가 라인
+    order.forEach(c=>{
+      const a=get(c),b=get2(c), ya=y(a),yb=y(b), col=C[c].color, hi2=(c==='cn'||c==='kr');
+      const wdt=hi2?4:2.5, op=hi2?1:.7;
+      s+=`<line x1="${x0}" y1="${ya}" x2="${x1}" y2="${yb}" stroke="${col}" stroke-width="${wdt}" opacity="${op}" stroke-linecap="round"/>`;
+      s+=`<circle cx="${x0}" cy="${ya}" r="5" fill="${col}"/><circle cx="${x1}" cy="${yb}" r="5" fill="${col}"/>`;
+      // 좌측 값
+      s+=`<text x="${x0-12}" y="${ya+4}" text-anchor="end" font-size="12" fill="${shade(col,-45)}" font-weight="700">${fmt(a)}</text>`;
+      // 우측 라벨(국기/이름/값)
+      s+=`<text x="${x1+12}" y="${yb+4}" font-size="13" fill="${shade(col,-45)}" font-weight="800">${C[c].name} ${fmt(b)}</text>`;
+    });
+    s+=`</svg>`;
+    document.getElementById('chart').innerHTML=s;
+    const kr=T.countries.kr, cn=T.countries.cn;
+    document.getElementById('annot').innerHTML = mode==='level'
+      ? `<b>중국</b> ${cn['2020'].level}→${cn['2025'].level} (▲${cn.d_level}) · 한국 ${kr['2020'].level}→${kr['2025'].level} (▼${Math.abs(kr.d_level)}) — 굵은 선이 변화 큰 국가`
+      : `격차가 위로 갈수록 우수(작음). 중국 격차 ${cn['2020'].gap_yr}→${cn['2025'].gap_yr}년으로 크게 단축`;
+  }
+  document.querySelectorAll('.tg').forEach(b=>b.onclick=()=>{
+    mode=b.dataset.m;
+    document.querySelectorAll('.tg').forEach(x=>x.classList.toggle('active',x===b));
+    draw();
+  });
+  draw();
+
+  // ── 국가별 변화 카드 ──────────────────────────────
+  const cards=document.getElementById('cards');
+  [...order].sort((a,b)=>T.countries[b].d_level-T.countries[a].d_level).forEach(c=>{
+    const t=T.countries[c], dl=t.d_level, up=dl>=0;
+    const dg=t.d_gap, gUp=dg<=0; // 격차 감소=개선
+    const el=document.createElement('div'); el.className='cc'; el.style.borderTopColor=C[c].color;
+    el.innerHTML=`<div class="h">${flagImg(c,18)} ${C[c].name}</div>
+      <div class="lv">'25 수준 <b>${t['2025'].level}</b><span style="font-size:11px">%</span></div>
+      <div class="dl ${up?'up':'down'}">${up?'▲':'▼'} ${Math.abs(dl)}p <span style="color:#94a3b8;font-weight:600">vs 2020 (${t['2020'].level})</span></div>
+      <div class="gp">격차 ${t['2020'].gap_yr}→${t['2025'].gap_yr}년
+        <span class="${gUp?'up':'down'}" style="font-weight:800">${gUp?'개선':'악화'} ${Math.abs(dg)}</span></div>`;
+    cards.appendChild(el);
+  });
+
+  // ── 한국 분야별 다이버징 바 ─────────────────────────
+  const mv=document.getElementById('movers');
+  const maxAbs=Math.max(...T.kr_movers.map(m=>Math.abs(m.delta)))||1;
+  // 상승 큰 것부터 위로
+  [...T.kr_movers].sort((a,b)=>b.delta-a.delta).forEach(m=>{
+    const pct=Math.abs(m.delta)/maxAbs*100, pos=m.delta>=0;
+    const row=document.createElement('div'); row.className='row';
+    row.innerHTML=`<div class="nm">${m.name}</div>
+      <div class="barwrap"><div class="axis"></div>
+        <div class="bar ${pos?'pos':'neg'}" style="width:${(pct/2).toFixed(1)}%">${m.delta>0?'+':''}${m.delta}</div></div>
+      <div class="vv ${pos?'r':'l'}">${m.y2020} → ${m.y2025}</div>`;
+    mv.appendChild(row);
+  });
+}
+function hex2rgb(h){h=h.replace('#','');return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+function shade(hex,amt){let[r,g,b]=hex2rgb(hex);r=Math.max(0,Math.min(255,r+amt));g=Math.max(0,Math.min(255,g+amt));b=Math.max(0,Math.min(255,b+amt));return`rgb(${r|0},${g|0},${b|0})`;}
+</script>
+</body>
+</html>

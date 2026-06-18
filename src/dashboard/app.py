@@ -59,7 +59,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 페이지 import
-from pages import level_survey, positioning, activity_survey
+from pages import level_survey, positioning, activity_survey, infographics
 
 
 def main():
@@ -72,9 +72,10 @@ def main():
     """, unsafe_allow_html=True)
 
     # 2단 메뉴 구조
-    menu_level1, menu_level2 = st.tabs([
+    menu_level1, menu_level2, menu_level3 = st.tabs([
         "통계정보",
         "기후기술통계 분석",
+        "인포그래픽",
     ])
 
     # ── 1단: 통계정보 ──
@@ -91,6 +92,10 @@ def main():
     # ── 2단: 기후기술통계 분석 ──
     with menu_level2:
         positioning.render()
+
+    # ── 3단: 인포그래픽 ──
+    with menu_level3:
+        infographics.render()
 
 
 if __name__ == "__main__":

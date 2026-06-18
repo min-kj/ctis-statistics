@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기후기술 국가별 선도 지형 2025 (v2) — CTis</title>
+<style>
+  :root{
+    --ink:#14230a; --ink2:#4a5a3a; --line:#e2e8d8; --bg:#f6f8f2;
+    --green1:#2d5016; --green2:#4a7c23;
+    --c-kr:#FF6B6B; --c-cn:#4ECDC4; --c-jp:#45B7D1; --c-us:#96CEB4; --c-eu:#FECA57;
+    --t-gam:#4a7c23; --t-jeok:#2196F3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.45}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+
+  header{background:linear-gradient(135deg,var(--green1),var(--green2));color:#fff;padding:34px 0 30px}
+  header .wrap{padding-bottom:0}
+  h1{margin:0 0 6px;font-size:30px;font-weight:800;letter-spacing:-.5px}
+  .sub{opacity:.9;font-size:15px;margin:0}
+  .src{opacity:.7;font-size:12px;margin-top:10px}
+
+  .kpibar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);
+          border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .kpibar .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 0}
+  .kpi-label{font-size:12px;color:var(--ink2);font-weight:700;margin-right:4px}
+  .chip{display:flex;align-items:center;gap:8px;border:2px solid transparent;border-radius:999px;
+        padding:7px 14px 7px 10px;cursor:pointer;background:#fff;transition:.15s;font-weight:700;
+        box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .chip:hover{transform:translateY(-1px)}
+  .chip .flag{font-size:18px}
+  .chip .cnt{font-size:20px;font-weight:800;line-height:1}
+  .chip .cnt small{font-size:11px;font-weight:600;color:var(--ink2);margin-left:2px}
+  .chip.active{box-shadow:0 4px 14px rgba(0,0,0,.16)}
+  .chip.dim{opacity:.4}
+  .chip.reset{font-weight:600;color:var(--ink2);font-size:13px;padding:8px 14px}
+
+  /* Legend */
+  .legend{display:flex;gap:20px;flex-wrap:wrap;align-items:center;padding:16px 0 4px;font-size:12.5px;color:var(--ink2)}
+  .legend .grp{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .legend .grp b{color:var(--ink)}
+  .sw{width:13px;height:13px;border-radius:4px;display:inline-block;vertical-align:-2px;margin-right:5px;border:1px solid rgba(0,0,0,.08)}
+  .legend .sep{width:1px;height:18px;background:var(--line)}
+  .gapscale{display:flex;align-items:center;gap:3px}
+  .gapscale i{width:22px;height:14px;border-radius:3px;border:1px solid rgba(0,0,0,.08)}
+  .gapscale .lab{font-size:11px;color:var(--ink2);margin:0 3px}
+
+  .secttl{display:flex;align-items:center;gap:10px;margin:26px 0 12px;font-size:17px;font-weight:800}
+  .secttl .tag{font-size:11px;font-weight:700;color:#fff;padding:3px 9px;border-radius:6px}
+  .secttl .n{font-size:12px;color:var(--ink2);font-weight:600}
+
+  /* Landscape grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:10px}
+  .cell{position:relative;border-radius:12px;padding:12px 12px 10px;cursor:pointer;color:#13230a;
+        border:1px solid rgba(0,0,0,.08);min-height:110px;display:flex;flex-direction:column;
+        transition:.15s;overflow:hidden}
+  .cell:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.16);z-index:2}
+  .cell.dim{opacity:.28;filter:saturate(.6)}
+  .cell.sel{outline:3px solid var(--green1);outline-offset:1px}
+  .cell .flagbadge{position:absolute;top:8px;right:9px;line-height:0}
+  .cell .flagbadge img{width:32px;height:21px;object-fit:cover;border-radius:3px;
+        box-shadow:0 1px 3px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.7)}
+  .fimg{height:auto;border-radius:2px;object-fit:cover;vertical-align:-3px;
+        box-shadow:0 0 0 1px rgba(0,0,0,.12);display:inline-block}
+  .cell .cno{font-size:10px;font-weight:700;opacity:.55}
+  .cell .cname{font-size:13.5px;font-weight:800;margin:1px 0 auto;letter-spacing:-.3px;padding-right:24px}
+  .cell .krgap{font-size:11px;font-weight:700;margin-top:8px;color:#13230a}
+  .cell .krgap b{font-size:13px}
+  .cell .krgap small{font-weight:600;opacity:.65}
+  .cell .spark{display:flex;gap:2px;align-items:flex-end;height:20px;margin-top:6px}
+  .cell .spark i{flex:1;border-radius:2px 2px 0 0;min-height:2px;opacity:.9}
+
+  /* Drilldown */
+  #drill{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:16px;
+         overflow:hidden;display:none;box-shadow:0 6px 24px rgba(0,0,0,.06)}
+  #drill.show{display:block}
+  .drill-hd{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line);background:#fbfcf8}
+  .drill-hd h3{margin:0;font-size:19px;font-weight:800}
+  .drill-hd .leadbig{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ink2)}
+  .drill-hd .leadbig .flag{font-size:24px}
+  .drill-body{padding:8px 22px 20px}
+  .scalehint{font-size:11.5px;color:var(--ink2);background:#f4f7ee;border-radius:8px;padding:7px 11px;margin:10px 0 4px}
+  .scalehint b{color:var(--green2)}
+  .det{padding:13px 0;border-bottom:1px dashed var(--line)}
+  .det:last-child{border-bottom:0}
+  .det .dt{font-size:13.5px;font-weight:700;margin-bottom:8px;display:flex;gap:7px;align-items:center}
+  .det .dt .flag{font-size:15px}
+  .bars{display:grid;grid-template-columns:46px 1fr 116px;gap:7px 10px;align-items:center}
+  .bars .nm{font-size:11.5px;color:var(--ink2);font-weight:700;text-align:right}
+  .track{background:#eef1e8;border-radius:5px;height:16px;position:relative;overflow:hidden}
+  .track .fill{height:100%;border-radius:5px;display:flex;align-items:center;justify-content:flex-end;
+               padding-right:6px;color:#0e1c06;font-size:10px;font-weight:800;min-width:26px}
+  .bars .gap{font-size:11px;color:var(--ink2);text-align:right}
+  .bars .gap b{color:var(--green2)}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:14px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;border-top:5px solid #ccc;transition:.15s}
+  .card.dim{opacity:.4}
+  .card .ch{display:flex;align-items:center;gap:9px;margin-bottom:4px}
+  .card .ch .flag{font-size:26px}
+  .card .ch .nm{font-size:17px;font-weight:800}
+  .card .ch .rk{margin-left:auto;font-size:11px;color:var(--ink2);font-weight:700;background:#f0f3ea;padding:3px 8px;border-radius:20px}
+  .card .big{display:flex;gap:16px;margin:10px 0 12px}
+  .card .big .v{font-size:26px;font-weight:800;line-height:1}
+  .card .big .v small{font-size:11px;font-weight:600;color:var(--ink2);display:block;margin-top:3px}
+  .card .fld{font-size:11.5px;margin-top:7px}
+  .card .fld .h{font-weight:700;color:var(--ink2);margin-bottom:3px}
+  .card .fld .pill{display:inline-block;background:#f2f5ec;border-radius:6px;padding:2px 7px;margin:0 4px 4px 0;font-weight:600}
+  .card .fld.weak .pill{background:#fdeeee}
+
+  h2.block{font-size:18px;font-weight:800;margin:34px 0 6px}
+  .hint{font-size:12.5px;color:var(--ink2);margin:0 0 8px}
+  .foot{margin-top:40px;font-size:11.5px;color:#8a9a78;text-align:center}
+  @media(max-width:560px){ h1{font-size:23px} .bars{grid-template-columns:40px 1fr 96px} }
+
+  /* 국가 칩(컴팩트→펼침) */
+  .countries{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:6px;align-items:flex-start}
+  .ccard{border:1px solid var(--line);border-top:4px solid #ccc;border-radius:12px;background:#fff;
+         padding:11px 14px;cursor:pointer;transition:.15s;flex:0 0 auto}
+  .ccard:hover{box-shadow:0 6px 16px rgba(0,0,0,.10);transform:translateY(-1px)}
+  .ccard.dim{opacity:.42}
+  .ccard.open{min-width:300px;box-shadow:0 8px 24px rgba(0,0,0,.13)}
+  .ccard.reset{display:flex;align-items:center;color:var(--ink2);font-weight:700;font-size:13px;border-top-color:var(--line)}
+  .cc-head{display:flex;align-items:center;gap:10px}
+  .cc-main .cc-nm{font-size:15px;font-weight:800;color:var(--ink);line-height:1.1}
+  .cc-main .cc-cnt{font-size:11.5px;color:var(--ink2);margin-top:2px}
+  .cc-main .cc-cnt b{font-size:17px;color:var(--ink);font-weight:800}
+  .cc-head .cc-rk{margin-left:12px;font-size:11px;color:var(--ink2);font-weight:700;background:#f0f3ea;padding:3px 8px;border-radius:20px}
+  .cc-head .toggle-ic{color:#9aa888;font-size:11px;margin-left:2px}
+  .cc-body{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+  .cc-body .big{display:flex;gap:18px;margin-bottom:10px}
+  .cc-body .big .v{font-size:24px;font-weight:800;line-height:1}
+  .cc-body .big .v small{font-size:11px;font-weight:600;color:var(--ink2);display:block;margin-top:3px}
+  .cc-body .fld{font-size:11.5px;margin-top:6px}
+  .cc-body .fld .h{font-weight:700;color:var(--ink2);margin-bottom:3px}
+  .cc-body .fld .pill{display:inline-block;background:#f2f5ec;border-radius:6px;padding:2px 7px;margin:0 4px 4px 0;font-weight:600}
+  .cc-body .fld.weak .pill{background:#fdeeee}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1 id="h-title">기후기술 국가별 선도 지형 2025</h1>
+    <p class="sub" id="h-sub"></p>
+    <p class="src" id="h-src"></p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="legend" id="legend"></div>
+
+  <h2 class="block">국가별 선도 현황 <span class="hint" style="font-weight:600">— 선도기술 보유 수 순. 칩을 클릭하면 종합 정보가 펼쳐지고, 아래 지형에서 해당국 선도 분야가 강조됩니다.</span></h2>
+  <div class="countries" id="countries"></div>
+
+  <h2 class="block">분야별 선도 지형 <span class="hint" style="font-weight:600">— 배경색 = 한국과의 기술격차(작을수록 진한 녹색), 우상단 국기 = 선도국. 칸 클릭 시 세부기술 비교.</span></h2>
+
+  <div id="landscape"></div>
+
+  <div id="drill">
+    <div class="drill-hd"><h3 id="d-title"></h3><div class="leadbig" id="d-lead"></div></div>
+    <div class="drill-body" id="d-body"></div>
+  </div>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+(async function(){
+  let D = window.CTIS_DATA;
+  if(!D){ try{ D = await (await fetch('data.json')).json(); }catch(e){
+    document.body.innerHTML='<p style="padding:40px">data.js / data.json 을 찾을 수 없습니다. <code>extract_data.py</code> 를 먼저 실행하세요.</p>'; return; } }
+  init(D);
+})();
+
+function init(D){
+  const C = {}; D.meta.countries.forEach(c=>C[c.code]=c);
+  const order = D.meta.countries.map(c=>c.code);
+  // 국기: flags/{code}.png (Windows는 이모지 국기를 글자로 표시 → 실제 이미지 사용)
+  const flagImg = (code, w) => {
+    const c = C[code] || {}; const nm = c.name || code;
+    return `<img class="fimg" src="${c.img || ('flags/'+code+'.png')}" alt="${nm}" title="${nm}" style="width:${w}px">`;
+  };
+  const GAP_DIV = D.meta.gap_unit==='month' ? 12 : 1;       // 개월→년
+  let activeCountry = null, selectedCat = null;
+
+  // ── 분야별 한국 기술격차(년) + 5단계(분위) 버킷 ─────────────────────
+  const krGap = {};                                          // cat.no → 한국 격차(년)
+  D.categories.forEach(c=>{
+    const gs = c.details.map(d=>d.gaps.kr).filter(x=>x!=null);
+    krGap[c.no] = gs.length ? (gs.reduce((a,b)=>a+b,0)/gs.length)/GAP_DIV : null;
+  });
+  const sortedGap = D.categories.map(c=>krGap[c.no]).filter(x=>x!=null).sort((a,b)=>a-b);
+  const N = sortedGap.length;
+  const TH = [1,2,3,4].map(k=>sortedGap[Math.floor(N*k/5)]);  // 분위 경계(4개)
+  // 5단계 녹색: 격차 작음=진한 녹색 … 큼=옅음 (명도 높게 유지 → 검정 글자 가독)
+  const GAP_GREENS = ['hsl(140,60%,77%)','hsl(140,46%,82%)','hsl(140,34%,86%)','hsl(140,22%,89%)','hsl(140,12%,92%)'];
+  const bucketOf = g => { if(g==null) return 4; let b=0; for(const t of TH){ if(g>t) b++; } return b; };
+
+  // ── Header
+  document.getElementById('h-title').textContent = D.meta.title + ' (v2)';
+  document.getElementById('h-sub').textContent   = D.meta.subtitle;
+  document.getElementById('h-src').textContent   = '출처: ' + D.meta.source;
+  document.getElementById('foot').textContent =
+    `${D.meta.source} · 분야 ${D.meta.n_category}개 / 세부 ${D.meta.n_detail}개 · 배경색=한국 기술격차(년, 작을수록 녹색) · 우상단 국기=선도국 · 막대=5(최저)~10(최고) 상대점수`;
+
+  // ── Legend
+  const fmtY = v => v==null ? '-' : v.toFixed(1);
+  const gapSwatches = GAP_GREENS.map(g=>`<i style="background:${g}"></i>`).join('');
+  document.getElementById('legend').innerHTML =
+    `<div class="grp"><b>한국과의 기술격차 (배경)</b>
+       <span class="gapscale"><span class="lab">작음(우수)</span>${gapSwatches}<span class="lab">큼</span></span>
+       <span class="lab" style="color:#9aa888">~${fmtY(TH[0])}·~${fmtY(TH[1])}·~${fmtY(TH[2])}·~${fmtY(TH[3])}·그이상 (년)</span></div>`+
+    `<span class="sep"></span>`+
+    `<div class="grp"><b>선도국 (우상단 국기·막대 색)</b>`+
+      order.map(c=>`<span><span class="sw" style="background:${C[c].color}"></span>${flagImg(c,16)} ${C[c].name}</span>`).join('')+
+    `</div><span class="sep"></span>`+
+    `<div class="grp"><b>분야 유형</b>
+      <span><span class="sw" style="background:var(--t-gam)"></span>감축</span>
+      <span><span class="sw" style="background:var(--t-jeok)"></span>적응</span></div>`;
+
+  // ── Landscape
+  const land = document.getElementById('landscape');
+  function renderLandscape(){
+    land.innerHTML='';
+    ['감축','적응'].forEach(tp=>{
+      const cats = D.categories.filter(c=>c.type===tp);
+      if(!cats.length) return;
+      const ttl = document.createElement('div');
+      ttl.className='secttl';
+      ttl.innerHTML = `<span class="tag" style="background:${tp==='감축'?'var(--t-gam)':'var(--t-jeok)'}">${tp}</span>
+        <span class="n">${cats.length}개 분야</span>`;
+      land.appendChild(ttl);
+      const g = document.createElement('div'); g.className='grid';
+      cats.forEach(cat=>{
+        const lead = cat.leader, gy = krGap[cat.no];
+        const cell = document.createElement('div');
+        cell.className='cell';
+        cell.style.background = GAP_GREENS[bucketOf(gy)];     // ★ 배경=한국 기술격차
+        if(selectedCat===cat.no) cell.classList.add('sel');
+        if(activeCountry && lead!==activeCountry) cell.classList.add('dim');
+        // 스파크: 5~10 상대점수(최저국=5, 최고국=10)
+        const lvs = order.map(c=>cat.levels[c]).filter(x=>x!=null);
+        const mn=Math.min(...lvs), mx=Math.max(...lvs), sp=(mx-mn)||1;
+        const spark = order.map(c=>{
+          const v=cat.levels[c];
+          if(v==null) return `<i style="height:2px;background:#ccc"></i>`;
+          const sc=5+(v-mn)/sp*5, h=sc/10*20;
+          return `<i style="height:${h.toFixed(1)}px;background:${C[c].color};${activeCountry&&c!==activeCountry?'opacity:.3':''}"></i>`;
+        }).join('');
+        cell.innerHTML = `<div class="flagbadge" title="선도국 ${C[lead].name}">${flagImg(lead,32)}</div>
+          <div class="cno">${cat.no}</div>
+          <div class="cname">${cat.name}</div>
+          <div class="krgap">${flagImg('kr',15)} 한국 격차 <b>${gy==null?'-':gy.toFixed(1)}</b><small>년</small></div>
+          <div class="spark" title="5개국 상대 기술수준 (5~10)">${spark}</div>`;
+        cell.onclick = ()=> selectCat(cat);
+        g.appendChild(cell);
+      });
+      land.appendChild(g);
+    });
+  }
+
+  // ── Drilldown
+  const drill = document.getElementById('drill');
+  function selectCat(cat){
+    selectedCat = cat.no; renderLandscape();
+    document.getElementById('d-title').textContent = `${cat.no}. ${cat.name}`;
+    const L = C[cat.leader], gy = krGap[cat.no];
+    document.getElementById('d-lead').innerHTML =
+      `<span>분야 선도</span>${flagImg(cat.leader,24)}<b style="color:${shade(L.color,-35)}">${L.name}</b>
+       <span style="color:#9aa888">· ${flagImg('kr',14)} 한국 격차 ${gy==null?'-':gy.toFixed(1)}년 · 세부 ${cat.n_detail}개</span>`;
+    const body = document.getElementById('d-body');
+    body.innerHTML = `<div class="scalehint">막대 길이 = <b>5(최하위국) ~ 10(최고국)</b> 상대 점수 · 우측 숫자 = 실제 기술수준(%)·격차</div>` +
+      cat.details.map(d=>{
+        const lv = order.map(c=>d.levels[c]).filter(x=>x!=null);
+        const mn=Math.min(...lv), mx=Math.max(...lv), sp=(mx-mn)||1;
+        const rows = order.map(c=>{
+          const v=d.levels[c], g=d.gaps[c], isLead=d.leader===c;
+          const sc = v==null ? null : 5+(v-mn)/sp*5;
+          const gp = (g==null)?'' : (D.meta.gap_unit==='month'? gapTxt(g):`${g}년`);
+          return `<div class="nm">${flagImg(c,20)}</div>
+            <div class="track"><div class="fill" style="width:${sc==null?0:(sc*10).toFixed(1)}%;background:${C[c].color};${isLead?'box-shadow:0 0 0 2px '+shade(C[c].color,-30)+' inset':''}">${sc==null?'-':sc.toFixed(1)}</div></div>
+            <div class="gap">${v==null?'-':v+'%'} ${isLead?'· <b>선도</b>':(gp?'· '+gp:'')}</div>`;
+        }).join('');
+        return `<div class="det"><div class="dt">${flagImg(d.leader,18)} ${d.name}</div>
+          <div class="bars">${rows}</div></div>`;
+      }).join('');
+    drill.classList.add('show');
+    drill.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+
+  // ── 국가 칩 (기본=컴팩트, 클릭 시 종합 카드로 펼침)
+  const countriesEl = document.getElementById('countries');
+  function renderCountries(){
+    countriesEl.innerHTML='';
+    D.country_summary.forEach((cs,i)=>{
+      const open = activeCountry===cs.code;
+      const card=document.createElement('div');
+      card.className='ccard'+(open?' open':'')+((activeCountry&&!open)?' dim':'');
+      card.style.borderTopColor=cs.color;
+      let h=`<div class="cc-head">${flagImg(cs.code,30)}
+        <div class="cc-main"><div class="cc-nm">${cs.name}</div>
+          <div class="cc-cnt">선도 <b>${cs.leading_count}</b>개 · ${cs.leading_categories}개분야</div></div>
+        <span class="cc-rk">${i+1}위</span><span class="toggle-ic">${open?'▲':'▼'}</span></div>`;
+      if(open){
+        const strong = cs.strong.map(s=>`<span class="pill">${s.name} <b>${s.level}</b></span>`).join('');
+        const weak   = cs.weak.map(s=>`<span class="pill">${s.name} <b>${s.level}</b></span>`).join('');
+        h+=`<div class="cc-body">
+          <div class="big">
+            <div><div class="v" style="color:${shade(cs.color,-35)}">${cs.leading_count}</div><small>선도기술(개)</small></div>
+            <div><div class="v">${cs.leading_categories}</div><small>선도분야(개)</small></div>
+            <div><div class="v">${cs.avg_level}<small style="display:inline">%</small></div><small>평균수준</small></div>
+          </div>
+          <div class="fld"><div class="h">강점 분야</div>${strong}</div>
+          <div class="fld weak"><div class="h">약점 분야</div>${weak}</div></div>`;
+      }
+      card.innerHTML=h;
+      card.onclick=()=>toggleCountry(cs.code);
+      countriesEl.appendChild(card);
+    });
+    if(activeCountry){
+      const r=document.createElement('div');
+      r.className='ccard reset'; r.innerHTML='↺ 전체 보기';
+      r.onclick=()=>toggleCountry(null);
+      countriesEl.appendChild(r);
+    }
+  }
+
+  function toggleCountry(code){
+    activeCountry = (code && activeCountry===code) ? null : code;
+    renderLandscape(); renderCountries();
+  }
+
+  renderLandscape(); renderCountries();
+}
+
+function hex2rgb(h){h=h.replace('#','');return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+function shade(hex,amt){let[r,g,b]=hex2rgb(hex);r=Math.max(0,Math.min(255,r+amt));g=Math.max(0,Math.min(255,g+amt));b=Math.max(0,Math.min(255,b+amt));return`rgb(${r|0},${g|0},${b|0})`;}
+function gapTxt(m){ if(m==null)return''; if(m<12)return `${m}개월`; const y=(m/12); return `${y.toFixed(1)}년`; }
+</script>
+</body>
+</html>
